@@ -1,0 +1,28 @@
+.navbar {
+  border-bottom: 1px solid black;
+  margin-bottom: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.btn-homePage, .btn-savedPage {
+  /* border: 1px solid black; */
+}
+.btn-dashboardPage {
+  border-radius: 5px 0 0 5px;
+  border-left: 1px solid black;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+.btn-inventoryPage {
+  border-radius: 0;
+  border: 1px solid black;
+}
+.btn-supportPage {
+  border-radius: 0 5px 5px 0;
+  border-right: 1px solid black;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+.App-logo{
+  width: 100px;
+}

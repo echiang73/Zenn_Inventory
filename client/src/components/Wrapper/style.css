@@ -1,0 +1,9 @@
+.container {
+  min-height: 100%;
+  padding: 20px 15px 60px 15px;
+  border: 1px black solid;
+  max-width: 100%;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
