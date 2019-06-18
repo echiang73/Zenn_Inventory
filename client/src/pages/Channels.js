@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import SaveBtn from "../components/SaveBtn";
 // import DeleteBtn from "../components/DeleteBtn";
 import Jumbotron from "../components/Jumbotron";
 import Summary from "../components/Summary";
@@ -7,10 +6,8 @@ import Summary from "../components/Summary";
 import NavSide from "../components/NavSide";
 import API from "../utils/API";
 // import { Link } from "react-router-dom";
-// import Thumbnail from "../components/Thumbnail";
 import { Col, Container } from "../components/Grid";
 // import { List, ListItem } from "../components/List";
-// import { Input, FormBtn } from "../components/Form";
 
 class Books extends Component {
   state = {
@@ -46,15 +43,15 @@ class Books extends Component {
             </Col>
             <Col size="md-10">
               <Jumbotron>
-                <h1>Dashboard</h1>
-                <div>Summary of Sales and Inventory</div>
+                <h1>Storefront Channels</h1>
+                <div>Set up Amazon/Etsy/Ebay/etc</div>
               </Jumbotron>
               
               <div className="row">
                 <Col size="md-12 sm-12">
                   <Summary>
-                    <h1>Summary</h1>
-                    <div>Pie and Bar graphs</div>
+                    <h1>Amazon</h1>
+                    <div>Account Info</div>
                   </Summary>
 
                 </Col>

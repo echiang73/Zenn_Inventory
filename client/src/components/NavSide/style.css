@@ -1,16 +1,12 @@
-.navbar {
+/* .navbar {
   border-bottom: 1px solid black;
   margin-bottom: 10px;
   padding-left: 30px;
   padding-right: 30px;
-}
-/* .btn-homePage, .btn-savedPage {
-  border: 1px solid black;
 } */
-.btn-logoutPage {
-  border-radius: 5;
-  border: 1px solid black;
-}
+/* .btn-homePage, .btn-savedPage {
+  
+} */
 /* .btn-dashboardPage {
   border-radius: 5px 0 0 5px;
   border-left: 1px solid black;
@@ -27,6 +23,15 @@
   border-top: 1px solid black;
   border-bottom: 1px solid black;
 } */
-.App-logo{
+/* .App-logo{
   width: 100px;
+} */
+
+.nav-col {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  /* margin-bottom: 10px;
+  padding-left: 30px;
+  padding-right: 30px; */
 }
