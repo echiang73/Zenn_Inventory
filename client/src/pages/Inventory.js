@@ -13,7 +13,7 @@ import { Input, FormBtn } from "../components/Form";
 
 class Inventory extends Component {
   state = {
-    books: [],
+    items: [],
     title: "",
     author: "",
     synopsis: "",
@@ -38,7 +38,7 @@ class Inventory extends Component {
         author: this.state.author,
         synopsis: this.state.synopsis
       })
-        .then(res => this.loadBooks())
+        .then(res => this.loadItems())
         .catch(err => console.log(err));
     }
   };

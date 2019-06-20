@@ -11,7 +11,7 @@ import { Col } from "../components/Grid";
 
 class Support extends Component {
   state = {
-    books: [],
+    items: [],
     title: "",
     author: "",
     synopsis: "",
@@ -26,7 +26,7 @@ class Support extends Component {
   loadItems = () => {
     API.getItems()
       .then(res =>
-        this.setState({ books: res.data, title: "", author: "", synopsis: "" })
+        this.setState({ items: res.data, title: "", author: "", synopsis: "" })
       )
       .catch(err => console.log(err));
   };
