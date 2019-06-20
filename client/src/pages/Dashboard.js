@@ -34,6 +34,19 @@ class Dashboard extends Component {
       .catch(err => console.log(err));
   };
 
+  handleFormSubmit = event => {
+    event.preventDefault();
+    if (this.state.title && this.state.author) {
+      API.saveItem({
+        title: this.state.title,
+        author: this.state.author,
+        synopsis: this.state.synopsis
+      })
+        .then(res => this.loadItems())
+        .catch(err => console.log(err));
+    }
+  };
+
 
   render() {
     return (
@@ -53,6 +66,11 @@ class Dashboard extends Component {
               <div className="row">
                 <Col size="md-12 sm-12">
                   <Summary>
+                  <button
+                    // disabled={!this.state.search}
+                    onClick={this.handleFormSubmit}
+                  >Manual API Connect
+                  </button>
                     <h1>Summary</h1>
                     <div>Pie and Bar graphs</div>
                   </Summary>

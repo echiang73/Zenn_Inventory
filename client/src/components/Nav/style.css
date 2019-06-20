@@ -37,4 +37,22 @@
   /* background-color: #304f80 !important; */
   /* background-color: #edf0f5 !important; */
   /* color: white; */
+  background-image: linear-gradient(to bottom right, rgb(21, 134, 255),  #007BFF, rgb(0, 50, 103));
+  /* background: -webkit-linear-gradient(top left, rgb(5, 135, 5), rgb(0, 81, 108), rgb(11, 11, 181));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
+}
+
+#logoText{
+  /* font-size: 40px; */
+  
+}
+
+#logoText{
+  color: rgb(2, 150, 25);
+  text-align: center;
+  font-weight: bolder;
+  -webkit-text-stroke: 1px black;
+   text-shadow:
+    3px 3px 0 #000;
 }

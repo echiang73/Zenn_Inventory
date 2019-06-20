@@ -32,6 +32,7 @@ class Inventory extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
+    console.log("Submitting form!");
     if (this.state.title && this.state.author) {
       API.saveItem({
         title: this.state.title,
@@ -41,6 +42,14 @@ class Inventory extends Component {
         .then(res => this.loadItems())
         .catch(err => console.log(err));
     }
+  };
+
+  loadItems = () => {
+    API.getItems()
+      .then(res =>
+        this.setState({ items: res.data, title: "", author: "", synopsis: "" })
+      )
+      .catch(err => console.log(err));
   };
 
   deleteItem = id => {
