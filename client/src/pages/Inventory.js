@@ -7,7 +7,7 @@ import NavSide from "../components/NavSide";
 import API from "../utils/API";
 // import { Link } from "react-router-dom";
 // import Thumbnail from "../components/Thumbnail";
-import { Col, Container } from "../components/Grid";
+import { Col } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, FormBtn } from "../components/Form";
 

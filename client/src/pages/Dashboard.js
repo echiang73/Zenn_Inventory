@@ -8,7 +8,7 @@ import NavSide from "../components/NavSide";
 import API from "../utils/API";
 // import { Link } from "react-router-dom";
 // import Thumbnail from "../components/Thumbnail";
-import { Col, Container } from "../components/Grid";
+import { Col } from "../components/Grid";
 // import { List, ListItem } from "../components/List";
 // import { Input, FormBtn } from "../components/Form";
 
@@ -23,13 +23,13 @@ class Dashboard extends Component {
   };
 
   componentDidMount() {
-    this.loadItems();
+    // this.loadItems();
   }
 
   loadItems = () => {
     API.getItems()
       .then(res =>
-        this.setState({ books: res.data, title: "", author: "", synopsis: "" })
+        this.setState({ items: res.data, title: "", author: "", synopsis: "" })
       )
       .catch(err => console.log(err));
   };

@@ -6,7 +6,7 @@ import Summary from "../components/Summary";
 import NavSide from "../components/NavSide";
 import API from "../utils/API";
 // import { Link } from "react-router-dom";
-import { Col, Container } from "../components/Grid";
+import { Col } from "../components/Grid";
 // import { List, ListItem } from "../components/List";
 
 class Channels extends Component {
@@ -20,7 +20,7 @@ class Channels extends Component {
   };
 
   componentDidMount() {
-    this.loadItems();
+    // this.loadItems();
   }
 
   loadItems = () => {
