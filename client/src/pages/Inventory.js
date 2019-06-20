@@ -11,7 +11,7 @@ import { Col, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, FormBtn } from "../components/Form";
 
-class Books extends Component {
+class Inventory extends Component {
   state = {
     books: [],
     title: "",
@@ -33,7 +33,7 @@ class Books extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     if (this.state.title && this.state.author) {
-      API.saveBook({
+      API.saveItem({
         title: this.state.title,
         author: this.state.author,
         synopsis: this.state.synopsis
@@ -43,15 +43,15 @@ class Books extends Component {
     }
   };
 
-  deleteBook = id => {
-    API.deleteBook(id)
-      .then(res => this.loadBooks())
+  deleteItem = id => {
+    API.deleteItem(id)
+      .then(res => this.loadItems())
       .catch(err => console.log(err));
   };
 
   render() {
     return (
-      <Container fluid>
+      // <Container fluid>
         <Col size="md-12 sm-12">
           <div className="row">
             <Col size="md-2">
@@ -109,7 +109,7 @@ class Books extends Component {
             </Col>
           </div>
         </Col>
-      </Container >
+      // </Container >
     );
   }
 
@@ -189,7 +189,7 @@ class Books extends Component {
   // }
 }
 
-export default Books;
+export default Inventory;
 
 
 //  <a rel="noreferrer noopener" target="_blank" href={href}>

@@ -18,7 +18,7 @@ class Detail extends Component {
 
   render() {
     return (
-      <Container fluid>
+      // <Container fluid>
         <Row>
           <Col size="md-12">
             <Jumbotron>
@@ -43,7 +43,7 @@ class Detail extends Component {
             <Link to="/">← Back to Authors</Link>
           </Col>
         </Row>
-      </Container>
+      // </Container>
     );
   }
 }

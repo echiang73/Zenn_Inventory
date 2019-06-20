@@ -9,7 +9,7 @@ import API from "../utils/API";
 import { Col, Container } from "../components/Grid";
 // import { List, ListItem } from "../components/List";
 
-class Books extends Component {
+class Support extends Component {
   state = {
     books: [],
     title: "",
@@ -20,11 +20,11 @@ class Books extends Component {
   };
 
   componentDidMount() {
-    this.loadBooks();
+    this.loadItems();
   }
 
-  loadBooks = () => {
-    API.getBooks()
+  loadItems = () => {
+    API.getItems()
       .then(res =>
         this.setState({ books: res.data, title: "", author: "", synopsis: "" })
       )
@@ -34,7 +34,7 @@ class Books extends Component {
 
   render() {
     return (
-      <Container fluid>
+      // <Container fluid>
         <Col size="md-12 sm-12">
           <div className="row">
             <Col size="md-2">
@@ -59,9 +59,9 @@ class Books extends Component {
             </Col>
           </div>
         </Col>
-      </Container >
+      // </Container >
     );
   }
 }
 
-export default Books;
+export default Support;

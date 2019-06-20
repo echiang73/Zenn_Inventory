@@ -1,6 +1,6 @@
 .navbar {
   border-bottom: 1px solid black;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
   padding-left: 30px;
   padding-right: 30px;
 }
@@ -28,5 +28,13 @@
   border-bottom: 1px solid black;
 } */
 .App-logo{
-  width: 100px;
+  width: 80px;
+}
+
+.bg-primary {
+  /* background-color: #415b93 !important; */
+  /* background-color: #244579 !important; */
+  /* background-color: #304f80 !important; */
+  /* background-color: #edf0f5 !important; */
+  /* color: white; */
 }
