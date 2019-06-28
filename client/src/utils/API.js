@@ -16,7 +16,6 @@ export default {
   },
   // Saves a item to the database
   saveListing: function(itemsData) {
-    console.log("Sending info to controller to save to Mongo!");
     return axios.post("/api/items", itemsData);
   // },
   // searchListings: function(){

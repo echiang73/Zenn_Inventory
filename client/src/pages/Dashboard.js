@@ -3,7 +3,7 @@ import React, { Component } from "react";
 // import DeleteBtn from "../components/DeleteBtn";
 import Jumbotron from "../components/Jumbotron";
 import DisplayContainer from "../components/DisplayContainer";
-import Summary from "../components/Summary";
+// import Summary from "../components/Summary";
 // import Wrapper from "../components/Wrapper";
 import Nav from "../components/Nav";
 import NavSide from "../components/NavSide";
@@ -11,17 +11,12 @@ import API from "../utils/API";
 // import { Link } from "react-router-dom";
 // import Thumbnail from "../components/Thumbnail";
 import { Col } from "../components/Grid";
-import { List } from "../components/List";
+// import { List } from "../components/List";
 import ProductCard from "../components/ProductCard";
 // import { FormBtn } from "../components/Form";
 
 class Dashboard extends Component {
   state = {
-    items: [],
-    title: "",
-    price: "",
-    synopsis: "",
-    search: "",
     results: []
   };
 
@@ -33,9 +28,7 @@ class Dashboard extends Component {
   loadListings = () => {
     API.getListings()
       .then(res =>
-        // {console.log("Got data from MongoDB!!!");
-        // console.log(res)}
-        this.setState({ results: res.data, title: "", price: res.data.price, synopsis: "" })
+        this.setState({ results: res.data })
       )
       .catch(err => console.log(err));
   };
@@ -147,26 +140,8 @@ class Dashboard extends Component {
 
 
 render() {
-
-  const items = this.state.results.map((product) => {
-    // return (<List title={product.title} image={product.Images[0].url_75x75} price={product.price} key={product.listing_id} id={product.listing_id} />)
-    return (<List
-    // price={product.price}
-    // quantity={product.quantity}
-    // title={product.title}
-    // description={product.description}
-    // listing_id={product.listing_id}
-    // sku={product.sku}
-    // url={product.url}
-    // views={product.views}
-    // images={product.Images[0].url_fullxfull}
-    />)
-  })
-
-
   return (
     <div className="container1">
-      {/* <Container fluid> */}
       <Nav>
       </Nav>
 
@@ -179,8 +154,6 @@ render() {
           <Col size="md-10">
             <Jumbotron>
               <h2>Summary of Sales and Inventory</h2>
-              {/* <div>Summary table of inventory and search for items</div> */}
-              {/* <h1>{data.results[0].title}</h1> */}
             </Jumbotron>
 
 
@@ -200,33 +173,17 @@ render() {
             </Summary> */}
 
 
-
-
-
-
-            {/* <Wrapper> */}
-            <div>
-             
-            </div>
-            {/* </Wrapper> */}
-
-
-            {/* <Wrapper> */}
-            {/* <Wrapper> */}
-            {/* <div> */}
             {this.state.results.length ? (
-              // <List>
               <DisplayContainer>
                 {this.state.results.map(item => {
                   return (
-                    // <ListItem key={item.id}>
                     <ProductCard
-                      // _id={item._id}
                       image={item.image}
                       title={item.title}
                       price={item.price}
                       quantity={item.quantity}
                       listing_id={item.listing_id}
+                      key={item.listing_id}
                       sku={item.sku}
                       views={item.views}
                       url={item.url}
@@ -237,19 +194,12 @@ render() {
                 }
                 )}
               </DisplayContainer>
-              // </List>
             ) : (
                 <h3>No Results to Display</h3>
               )}
-            {/* </div> */}
-            {/* </Wrapper> */}
-            {/* </Wrapper> */}
-
           </Col>
         </div>
       </Col>
-
-      {/* </Container> */}
     </div>
   );
 }

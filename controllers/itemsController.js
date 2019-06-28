@@ -16,14 +16,8 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
-    console.log("Creating data in Mongo!");
-    console.log(req.body);
-
-    
-
     db.Item
       .create(req.body)
-      // .insert(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => {
         console.log(err);
