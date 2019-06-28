@@ -27,7 +27,7 @@ class Dashboard extends Component {
 
   componentDidMount() {
     this.loadListings();
-    this.loadGraphs();
+    // this.loadGraphs();
   }
 
   loadListings = () => {
@@ -42,57 +42,57 @@ class Dashboard extends Component {
 
 
 
-  loadGraphs = () => {
-    function Chart() {
-      this.type= "";
-      this.data= "";
-    }
+  // loadGraphs = () => {
+  //   function Chart() {
+  //     this.type= "";
+  //     this.data= "";
+  //   }
 
-    var ctx = document.getElementById('myChart').getContext('2d');
-    var myChart = new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: ['Amazon', 'Etsy', 'Ebay'],
-        datasets: [{
-          label: ['monthly sales'],
-          data: [12, 19, 3],
-          backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            // 'rgba(255, 206, 86, 0.2)',
-            // 'rgba(75, 192, 192, 0.2)',
-            // 'rgba(153, 102, 255, 0.2)',
-            'rgba(255, 159, 64, 0.2)'
-          ],
-          borderColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            // 'rgba(255, 206, 86, 1)',
-            // 'rgba(75, 192, 192, 1)',
-            // 'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)'
-          ],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        scales:
-        {
-          yAxes: [{
-            ticks: { beginAtZero: true },
-            scaleLabel: { display: true, labelString: 'Number of Orders/Month' }
-          }],
-          xAxes: [{
-            ticks: { beginAtZero: true },
-            scaleLabel: { display: true, labelString: 'Storefront', fontSize: 12, fontColor: '#666' }
-          }]
-        },
+  //   var ctx = document.getElementById('myChart').getContext('2d');
+  //   var myChart = new Chart(ctx, {
+  //     type: 'bar',
+  //     data: {
+  //       labels: ['Amazon', 'Etsy', 'Ebay'],
+  //       datasets: [{
+  //         label: ['monthly sales'],
+  //         data: [12, 19, 3],
+  //         backgroundColor: [
+  //           'rgba(255, 99, 132, 0.2)',
+  //           'rgba(54, 162, 235, 0.2)',
+  //           // 'rgba(255, 206, 86, 0.2)',
+  //           // 'rgba(75, 192, 192, 0.2)',
+  //           // 'rgba(153, 102, 255, 0.2)',
+  //           'rgba(255, 159, 64, 0.2)'
+  //         ],
+  //         borderColor: [
+  //           'rgba(255, 99, 132, 1)',
+  //           'rgba(54, 162, 235, 1)',
+  //           // 'rgba(255, 206, 86, 1)',
+  //           // 'rgba(75, 192, 192, 1)',
+  //           // 'rgba(153, 102, 255, 1)',
+  //           'rgba(255, 159, 64, 1)'
+  //         ],
+  //         borderWidth: 1
+  //       }]
+  //     },
+  //     options: {
+  //       scales:
+  //       {
+  //         yAxes: [{
+  //           ticks: { beginAtZero: true },
+  //           scaleLabel: { display: true, labelString: 'Number of Orders/Month' }
+  //         }],
+  //         xAxes: [{
+  //           ticks: { beginAtZero: true },
+  //           scaleLabel: { display: true, labelString: 'Storefront', fontSize: 12, fontColor: '#666' }
+  //         }]
+  //       },
 
-        legend: { display: false, labels: { fontColor: 'rgb(255, 99, 132)' } },
+  //       legend: { display: false, labels: { fontColor: 'rgb(255, 99, 132)' } },
 
-        // layout: {padding: {left: 50, right: 50, top: 0, bottom: 0}}
-      }
-    });
+  //       // layout: {padding: {left: 50, right: 50, top: 0, bottom: 0}}
+  //     }
+  //   });
 
 
 
@@ -141,7 +141,7 @@ class Dashboard extends Component {
 
 
 
-  }
+  // }
 
 
 
@@ -184,7 +184,7 @@ render() {
             </Jumbotron>
 
 
-            <Summary>
+            {/* <Summary>
               <div class="container">
                 <div class="row">
                   <div class="col-sm">
@@ -197,7 +197,7 @@ render() {
                   </div>
                 </div>
               </div>
-            </Summary>
+            </Summary> */}
 
 
 

@@ -245,7 +245,7 @@ class ProductDetail extends Component {
                           quantity={item.quantity}
                           listing_id={item.listing_id}
                           sku={item.sku}
-                          key={item.title}
+                          key={item.sku}
                           views={item.views}
                           url={item.url}
                           description={item.description} 
