@@ -1,9 +1,29 @@
 .container {
+  /* display: inline-block !important; */
   min-height: 100%;
   padding: 20px 15px 60px 15px;
   border: 1px black solid;
   max-width: 100%;
   border-radius: 5px;
   margin-bottom: 20px;
+  /* text-align: center; */
 }
 
+/* .container {
+  
+  height: 200px !important;
+  padding: 20px 15px 0px 15px !important;
+  border: 1px black solid;
+  max-width: 100%;
+  border-radius: 5px;
+} */
+
+/* .container{
+  
+  clear: both;
+  padding: 0;
+  text-align: center;
+  border: 1px solid black;
+  margin-bottom: 20px;
+  margin-top: 12px;
+} */

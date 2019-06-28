@@ -1,0 +1,20 @@
+.summary {
+  color:black;
+  text-align: center!important;
+  width: 100%;
+}
+
+.col-lg-6 {
+  padding: 75px;
+  margin: 25px;
+}
+
+.summary-logo {
+  background-size: cover;  
+  background: no-repeat center fixed;
+}
+
+.p {
+  width: 250%;
+}
+

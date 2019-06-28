@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import Jumbotron from "../components/Jumbotron";
 import Summary from "../components/Summary";
 // import Wrapper from "../components/Wrapper";
+import Nav from "../components/Nav";
 import NavSide from "../components/NavSide";
 import API from "../utils/API";
 // import { Link } from "react-router-dom";
@@ -34,7 +35,10 @@ class Channels extends Component {
 
   render() {
     return (
-      // <Container fluid>
+      <div>
+      {/* <Container fluid> */}
+        <Nav>
+        </Nav>
         <Col size="md-12 sm-12">
           <div className="row">
             <Col size="md-2">
@@ -59,7 +63,8 @@ class Channels extends Component {
             </Col>
           </div>
         </Col>
-      // </Container >
+      {/* </Container > */}
+      </div>
     );
   }
 }
