@@ -25,31 +25,7 @@ class Inventory extends Component {
   state = {
     results: [],
     columnDefs: [],
-    // columnDefs: [{
-    //   headerName: "Title", field: "title"
-    // }, {
-    //   headerName: "Storefront", field: "channel"
-    // }, {
-    //   headerName: "Listing ID", field: "listing_id"
-    // }, {
-    //   headerName: "SKU", field: "sku"
-    // }, {
-    //   headerName: "Views", field: "views"
-    // }, {
-    //   headerName: "Quantity", field: "quantity"
-    // }, {
-    //   headerName: "Price", field: "price"
-    // }, {
-    //   headerName: "URL", field: "url"
-    // }],
     rowData: [],
-    // rowData: [{
-    //   make: "Toyota", model: "Celica", price: 35000
-    // }, {
-    //   make: "Ford", model: "Festiva", price: 32000
-    // }, {
-    //   make: "Porsche", model: "Boxster", price: 72000
-    // }]
     show: false,
     quickFilterText: null,
   };
@@ -91,10 +67,6 @@ class Inventory extends Component {
     }
   }
 
-  // onQuickFilterChanged() {
-  //   this.gridApi.setQuickFilter(document.getElementById("quickFilter").value);
-  // }
-
   onQuickFilterText = (event) => {
     this.setState({quickFilterText: event.target.value});
 };
@@ -132,14 +104,14 @@ class Inventory extends Component {
     // alert(modalText);
   };
 
-  showAlert = () => {
-    alert('Yes is clicked');
-    this.handleClose();
-  }
+  // showAlert = () => {
+  //   alert('Yes is clicked');
+  //   this.handleClose();
+  // }
 
-  handleClose = () => {
-    this.setState({ show: false })
-  }
+  // handleClose = () => {
+  //   this.setState({ show: false })
+  // }
 
   render() {
     return (
@@ -157,8 +129,6 @@ class Inventory extends Component {
               <Jumbotron>
                 <h2>Inventory</h2>
               </Jumbotron>
-
-
 
 
               {/* <div>
@@ -180,17 +150,11 @@ class Inventory extends Component {
 
 
 
-
-
               {/* {this.state.results.length ? ( */}
               <div style={{ width: "100%", height: "100%" }}>
                 <div style={{ display: "flex", flexDirection: "row" }}>
                   <div style={{ overflow: "hidden", flexGrow: "1" }}>
                     <div id="myGrid" style={{ height: "750px", width: "100%" }} className="ag-theme-balham" >
-                      {/* <div style={{ width: "100%", height: "600px" }}>
-                            <div style={{ height: "100%", paddingTop: "35px", boxSizing: "border-box" }}>
-                              <div className="ag-theme-balham"> */}
-
                         <div>
                             <label htmlFor="quickFilter" id="quickFilterLabel">Quick Filter:&nbsp;</label>
                             <input type="text" id="quickFilter" onChange={this.onQuickFilterText} placeholder="Type text to filter..."/>
@@ -198,7 +162,6 @@ class Inventory extends Component {
 
                       <AgGridReact
                         quickFilterText={this.state.quickFilterText}
-                        // columnDefs={this.state.columnDefs}
                         rowData={this.state.rowData}>
                         <AgGridColumn field="image" width={85} headerName="Image" pinned editable
                           cellRenderer={Inventory.itemCellRenderer}
