@@ -13,13 +13,13 @@ import API from "../utils/API";
 import { Col } from "../components/Grid";
 // import { List } from "../components/List";
 // import ProductCard from "../components/ProductCard";
-import { FormBtn } from "../components/Form";
+// import { FormBtn } from "../components/Form";
 import { AgGridColumn, AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-balham.css';
 import './InventoryStyle.css';
 import ProficiencyCellRenderer from './ProficiencyCellRenderer.jsx';
-import BootBox from 'react-bootbox';
+// import BootBox from 'react-bootbox';
 
 class Inventory extends Component {
   state = {
@@ -55,18 +55,18 @@ class Inventory extends Component {
   };
 
   componentDidMount() {
-    this.loadListings();
+    // this.loadListings();
     this.loadTableData();
     // this.loadGraphs();
   }
 
-  loadListings = () => {
-    API.getListings()
-      .then(res =>
-        this.setState({ results: res.data }, console.log(res.data))
-      )
-      .catch(err => console.log(err));
-  };
+  // loadListings = () => {
+  //   API.getListings()
+  //     .then(res =>
+  //       this.setState({ results: res.data }, console.log(res.data))
+  //     )
+  //     .catch(err => console.log(err));
+  // };
   loadTableData = () => {
     API.getListings()
       .then(res =>
@@ -195,7 +195,6 @@ class Inventory extends Component {
                             <label htmlFor="quickFilter" id="quickFilterLabel">Quick Filter:&nbsp;</label>
                             <input type="text" id="quickFilter" onChange={this.onQuickFilterText} placeholder="Type text to filter..."/>
                         </div>
-                    
 
                       <AgGridReact
                         quickFilterText={this.state.quickFilterText}
