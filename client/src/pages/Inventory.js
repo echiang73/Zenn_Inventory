@@ -1,112 +1,146 @@
 import React, { Component } from "react";
-import SaveBtn from "../components/SaveBtn";
-import ViewBtn from "../components/ViewBtn";
+// import SaveBtn from "../components/SaveBtn";
+// import DeleteBtn from "../components/DeleteBtn";
 import Jumbotron from "../components/Jumbotron";
+// import DisplayContainer from "../components/DisplayContainer";
+// import Summary from "../components/Summary";
 // import Wrapper from "../components/Wrapper";
 import Nav from "../components/Nav";
 import NavSide from "../components/NavSide";
 import API from "../utils/API";
 // import { Link } from "react-router-dom";
 // import Thumbnail from "../components/Thumbnail";
-import { Col, Row } from "../components/Grid";
-import { List, ListItem } from "../components/List";
-import { Input, FormBtn } from "../components/Form";
-// import "./style.css";
-// import axios from "axios";
-import jsonp from 'jsonp'
+import { Col } from "../components/Grid";
+// import { List } from "../components/List";
+// import ProductCard from "../components/ProductCard";
+import { FormBtn } from "../components/Form";
+import { AgGridColumn, AgGridReact } from 'ag-grid-react';
+import 'ag-grid-community/dist/styles/ag-grid.css';
+import 'ag-grid-community/dist/styles/ag-theme-balham.css';
+import './InventoryStyle.css';
+import ProficiencyCellRenderer from './ProficiencyCellRenderer.jsx';
+import BootBox from 'react-bootbox';
 
 class Inventory extends Component {
   state = {
-    search: "",
     results: [],
-    listings: [],
-    books: [],
-    id: "",
-    disabled: false
+    columnDefs: [],
+    // columnDefs: [{
+    //   headerName: "Title", field: "title"
+    // }, {
+    //   headerName: "Storefront", field: "channel"
+    // }, {
+    //   headerName: "Listing ID", field: "listing_id"
+    // }, {
+    //   headerName: "SKU", field: "sku"
+    // }, {
+    //   headerName: "Views", field: "views"
+    // }, {
+    //   headerName: "Quantity", field: "quantity"
+    // }, {
+    //   headerName: "Price", field: "price"
+    // }, {
+    //   headerName: "URL", field: "url"
+    // }],
+    rowData: [],
+    // rowData: [{
+    //   make: "Toyota", model: "Celica", price: 35000
+    // }, {
+    //   make: "Ford", model: "Festiva", price: 32000
+    // }, {
+    //   make: "Porsche", model: "Boxster", price: 72000
+    // }]
+    show: false
   };
 
-
   componentDidMount() {
-
-    this.returnEtsyListings();
+    this.loadListings();
+    this.loadTableData();
+    // this.loadGraphs();
   }
 
-  returnEtsyListings () {
-    let term = "SilverandGoldGallery"; // need to put in env
-    let api_key = "xv3l1bj1g4cwg1ihrprejjce"; // need to put in env
-    jsonp("https://openapi.etsy.com/v2/shops/" + term + "/listings/active.js?callback=getData&limit=10&includes=Images:1&api_key=" + api_key, null, (err, data) => {
-      console.log("Making Etsy API call");
-        if (err) {
-          console.error(err.message);
-        }
-        else {
-          console.log("data is", data);
-          this.setState({
-            results: data.results
-          })
-          // console.log("state is", this.state)
-        }
-      });
-  }
-
-
-  // loadBooks = () => {
-  //   API.getBooks()
-  //     .then(res =>
-  //       this.setState({ books: res.data, title: "", authors: "", description: "" })
-  //     )
-  //     .catch(err => console.log(err));
-  // };
-
-  saveItem = item => {
-    // console.log("Saving book");
-    // console.log(book);
-    alert(item.title + " saved!");
-    API.saveItem(item)
-      .then(res => {
-        this.setState({
-          items: item
-        });
-      })
+  loadListings = () => {
+    API.getListings()
+      .then(res =>
+        this.setState({ results: res.data }, console.log(res.data))
+      )
+      .catch(err => console.log(err));
+  };
+  loadTableData = () => {
+    API.getListings()
+      .then(res =>
+        this.setState({ rowData: res.data }, console.log(res.data))
+      )
       .catch(err => console.log(err));
   };
 
-  // deleteBook = id => {
-  //   API.deleteBook(id)
-  //     .then(res => this.loadBooks())
-  //     .catch(err => console.log(err));
-  // };
+  static itemCellRenderer(params) {
+    if (params.value) {
+      return `<img border='0' width='45' height='30' style='margin-bottom: 2px' src='${params.value}'> `;
+    } else {
+      return null;
+    }
+  }
 
-  handleInputChange = event => {
-    console.log("Key clicked!");
-    this.setState({ search: event.target.value });
-  };
+  static urlCellRenderer(params) {
+    if (params.value) {
+      return `<a href='${params.value}' target="_blank">${params.value}</a> `;
+    } else {
+      return null;
+    }
+  }
 
-  handleFormSubmit = event => {
+  // onQuickFilterChanged() {
+  //   this.gridApi.setQuickFilter(document.getElementById("quickFilter").value);
+  // }
+
+  handleArticleNotes = (event) => {
     event.preventDefault();
-    console.log("Form submitted!");
-    // if (this.state.search) {
-    // API.searchItems(this.state.search)
-    API.searchItems()
-    // .then(res => {
-    // console.log(res.data);
-    // this.setState({ results: res.data.items })
-    // this.loadBooks()
-    // console.log(this.state.results);
-    // console.log(this.state.results[0].id);
-    // })
-    // .catch(err => console.log(err))
-    // })
-    // }
+    // alert("Bingo");
+    this.setState({ show: true }) 
+    // var currentArticle = $(this).parents(".panel").data();
+    // $.get("/api/notes/" + currentArticle._id).then(function(data) {
+    //     console.log(currentArticle);
+    // var modalText = [
+      // "<div class='container-fluid text-center'>",
+      // "<h4>Notes For Selected Article: ",
+      // currentArticle._id,
+      // "</h4>",
+      // "<hr />",
+      // "<ul class='list-group note-container'>",
+      // "</ul>",
+      // "<br>",
+      // "<textarea placeholder='Type New Note' rows='4' cols='50'></textarea>",
+      // "<button class='btn btn-success save'>Save Note</button>",
+      // "</div>"
+    // ].join("");
+    // BootBox.dialog({
+      // message: modalText,
+      // closeButton: true
+    // });
+    // var noteData = {
+    //     _id: currentArticle._id,
+    //     notes: data || []
+    // };
+    // $(".btn.save").data("article", noteData);
+    // renderNotesList(noteData);
+    // alert(modalText);
   };
+
+  showAlert = () => {
+    alert('Yes is clicked');
+    this.handleClose();
+  }
+
+  handleClose = () => {
+    this.setState({ show: false })
+  }
 
   render() {
-   
     return (
       <div className="container1">
         <Nav>
         </Nav>
-        {/* <Container fluid> */}
 
         <Col size="md-12 sm-12">
           <div className="row">
@@ -116,356 +150,81 @@ class Inventory extends Component {
             </Col>
             <Col size="md-10">
               <Jumbotron>
-                <h1>Inventory</h1>
-                <div>Summary table of inventory and search for items</div>
-                {/* <h1>{data.results[0].title}</h1> */}
+                <h2>Inventory</h2>
               </Jumbotron>
 
-              {/* <Wrapper> */}
-              <div>
+
+
+
+              {/* <div>
                 <form>
-                  <h2>Item Search</h2>
-                  <Input
-                    value={this.state.search}
-                    onChange={this.handleInputChange}
-                    name="search"
-                    placeholder="Silver ring (required)"
-                  />
-                  <FormBtn
-                    disabled={!this.state.search}
-                    onClick={this.handleFormSubmit}
-                  >
-                    Search
-                </FormBtn>
+                  <FormBtn onClick={this.handleArticleNotes}>
+                    Article Notes
+              </FormBtn>
                 </form>
               </div>
-              {/* </Wrapper> */}
 
-
-              {/* <Wrapper> */}
-              <div>
-                {this.state.results.length ? (
-                  <List>
-                    {this.state.results.map(item => {
-                      return (
-                        <ListItem key={item.id}>
-                          {/* <a rel="noreferrer noopener" target="_blank" href={item.volumeInfo.infoLink}> */}
-                          
-                            {/* <strong style={{ fontSize: "24px" }}> */}
-                              {/* {item.volumeInfo.title} */}
-                              {/* {item.title}
-                              {item.description} */}
-                              <ul>
-                                <img src={item.Images[0].url_170x135} alt="item"/>
-                                <li><a rel="noreferrer noopener" target="_blank" href={item.url}>{item.title}</a></li>
-                                {/* <li>{item.description}</li> */}
-                                <li>${item.price}</li>
-                                <li>Quantity: {item.quantity}</li>
-                                <li>Listing ID: {item.listing_id}</li>
-                                <li>SKU: {item.sku}</li>
-                                
-                                <li>Views: {item.views}</li>
-                              </ul>
-
-                            {/* </strong> */}
-                          {/* </a> */}
-
-                          
+              <button onClick={() => { this.setState({ show: true }) }}>Click me to open BootBox</button>
+              <BootBox
+                // message="Do you want to Continue?"
+                message={<div>Notes For Selected Article: {this.state.results.price}</div>}
+                show={this.state.show}
+                onYesClick={this.showAlert}
+                onNoClick={this.handleClose}
+                onClose={this.handleClose} /> */}
 
 
 
 
-                          <br />
-                          {/* by {(item.volumeInfo.authors).join(", ")} */}
-                          {/* {const submitDisabled = this.state.search !== this.state.search} */}
-                          {/* <button disabled={submitDisabled}>hello</button> */}
-                          {/* <button {disabled}>Test-button</button> */}
-                          <SaveBtn
-                            // {window.location.pathname === "/" ? "disabled: true" : " "}
-                            // disabled = "true"
-                            onClick={() => {
-                              this.saveItem({
-                                title: item.volumeInfo.title,
-                                authors: (item.volumeInfo.authors).join(", "),
-                                description: item.volumeInfo.description,
-                                thumbnail: item.volumeInfo.imageLinks.thumbnail,
-                                link: item.volumeInfo.infoLink,
-                                previewLink: item.volumeInfo.previewLink,
-                                _id: item.id
-                              }
-                              )
-                            }}
-                          // onChange={this.state.disabled= true}
-                          />
-                          <a rel="noreferrer noopener" target="_blank" href={item.url}>
-                            <ViewBtn /></a>
-                          
-                          <Row>
-                            <Col size="xs-1 sm-1">
-                              {/* <Thumbnail src={item.volumeInfo.imageLinks.thumbnail} /> */}
-                            </Col>
-                            <Col size="xs-11 sm-11">
-                              {/* {item.volumeInfo.description} */}
-                            </Col>
-                          </Row>
-                        </ListItem>
-                      );
-                    }
-                    )}
-                  </List>
-                ) : (
-                    <h3>No Results to Display</h3>
-                  )}
-              </div>
-              {/* </Wrapper> */}
+
+              {/* {this.state.results.length ? ( */}
+                <div style={{ width: "100%", height: "600px" }}>
+                  <div style={{ height: "100%", paddingTop: "35px", boxSizing: "border-box" }}>
+                    <div className="ag-theme-balham">
+
+                      {/* <div style={{ position: "absolute", top: "0px", left: "0px" }}>
+                    <input
+                      type="text"
+                      onInput={this.onQuickFilterChanged.bind(this)}
+                      id="quickFilter"
+                      placeholder="quick filter..."
+                    />
+                  </div> */}
+
+                      <AgGridReact
+                        // columnDefs={this.state.columnDefs}
+                        rowData={this.state.rowData}>
+                        <AgGridColumn field="image" width={85} headerName="Image" pinned editable
+                          cellRenderer={Inventory.itemCellRenderer}
+                          filter="set" sortable filterParams={{ cellRenderer: Inventory.itemCellRenderer, cellHeight: 20 }}>
+                        </AgGridColumn>
+                        <AgGridColumn field="title" width={300} headerName="Title" filter="text" pinned sortable resizable></AgGridColumn>
+                        <AgGridColumn field="channel" width={105} headerName="Storefront" filter="text" sortable resizable></AgGridColumn>
+                        <AgGridColumn field="listing_id" width={105} headerName="Listing ID" filter="text" sortable resizable></AgGridColumn>
+                        <AgGridColumn field="sku" width={85} headerName="SKU" filter="text" sortable resizable></AgGridColumn>
+                        <AgGridColumn field="views" width={105} headerName="Views" filter="text" sortable resizable cellRendererFramework={ProficiencyCellRenderer}></AgGridColumn>
+                        <AgGridColumn field="quantity" width={100} headerName="Quantity" filter="text" sortable resizable></AgGridColumn>
+                        <AgGridColumn field="price" width={85} headerName="Price" filter="text" sortable resizable></AgGridColumn>
+                        <AgGridColumn field="url" width={210} headerName="URL" editable resizable
+                          cellRenderer={Inventory.urlCellRenderer}
+                          filter="set" sortable filterParams={{ cellRenderer: Inventory.urlCellRenderer, cellHeight: 20 }}>
+                        </AgGridColumn>
+                        <AgGridColumn field="state" width={85} headerName="State" filter="text" sortable resizable></AgGridColumn>
+                        <AgGridColumn field="description" width={500} headerName="Description" filter="text" sortable resizable></AgGridColumn>
+                      </AgGridReact>
+                    </div>
+                  </div>
+                </div>
+              {/* ) : ( */}
+                  {/* <h3>No Results to Display</h3> */}
+                {/* )} */}
 
             </Col>
           </div>
         </Col>
-
-        {/* </Container> */}
       </div>
     );
   }
-
-
 }
 
 export default Inventory;
-
-
-
-
-
-
-
-// import React, { Component } from "react";
-// // import SaveBtn from "../components/SaveBtn";
-// // import DeleteBtn from "../components/DeleteBtn";
-// import Jumbotron from "../components/Jumbotron";
-// import Wrapper from "../components/Wrapper";
-// import NavSide from "../components/NavSide";
-// import API from "../utils/API";
-// // import { Link } from "react-router-dom";
-// // import Thumbnail from "../components/Thumbnail";
-// import { Col } from "../components/Grid";
-// import { List, ListItem } from "../components/List";
-// import { Input, FormBtn } from "../components/Form";
-
-// class Inventory extends Component {
-//   state = {
-//     items: [],
-//     title: "",
-//     author: "",
-//     synopsis: "",
-//     search: "",
-//     results: []
-//   };
-
-//   componentDidMount() {
-
-//   }
-
-//   handleInputChange = event => {
-//     console.log("Clicked key!");
-//     this.setState({ search: event.target.value });
-//   };
-
-//   handleFormSubmit = event => {
-//     event.preventDefault();
-//     console.log("Submitting form!");
-
-//     if (this.state.title && this.state.author) {
-
-//       API.saveItem({
-//         title: this.state.title,
-//         author: this.state.author,
-//         synopsis: this.state.synopsis
-//       })
-//         .then(res => this.loadItems())
-//         .catch(err => console.log(err));
-//     }
-//   };
-
-//   loadItems = () => {
-//     API.getItems()
-//       .then(res =>
-//         this.setState({ items: res.data, title: "", author: "", synopsis: "" })
-//       )
-//       .catch(err => console.log(err));
-//   };
-
-//   deleteItem = id => {
-//     API.deleteItem(id)
-//       .then(res => this.loadItems())
-//       .catch(err => console.log(err));
-//   };
-
-//   render() {
-//     return (
-//       // <Container fluid>
-//         <Col size="md-12 sm-12">
-//           <div className="row">
-//             <Col size="md-2">
-//               <NavSide>
-//               </NavSide>
-//             </Col>
-//             <Col size="md-10">
-//               <Jumbotron>
-//                 <h1>Inventory</h1>
-//                 <div>Summary table of inventory and search for items</div>
-//               </Jumbotron>
-
-//               <Wrapper>
-//                 <form>
-//                   <h2>Item Search</h2>
-//                   <Input
-//                     value={this.state.search}
-//                     onChange={this.handleInputChange}
-//                     name="search"
-//                     placeholder="Silver ring (required)"
-//                   />
-//                   <FormBtn
-//                     disabled={!this.state.search}
-//                     onClick={this.handleFormSubmit}
-//                   >Search</FormBtn>
-//                 </form>
-//               </Wrapper>
-
-//               <div className="row">
-//                 <Col size="md-12 sm-12">
-//                   <Wrapper>
-//                     {this.state.results.length ? (
-
-//                       <List>
-//                         {this.state.results.map(book => {
-//                           return (
-//                             <ListItem key={book.title}>
-//                               <strong>
-//                                 {book.title} by {book.author}
-//                               </strong>
-//                               <hr />
-//                               {book.synopsis}
-//                             </ListItem>
-//                           );
-//                         }
-//                         )}
-//                       </List>
-//                     ) : (
-//                         <h3>No Results to Display</h3>
-//                       )}
-//                   </Wrapper>
-
-//                 </Col>
-//               </div>
-//             </Col>
-//           </div>
-//         </Col>
-//       // </Container >
-//     );
-//   }
-
-//   // render() {
-//   //   return (
-//   //     <Container fluid>
-
-//   //       <Col size="md-12">
-//   //         <Jumbotron>
-//   //           <h1>Inventory</h1>
-//   //         </Jumbotron>
-//   //         <Wrapper>
-//   //           <form>
-//   //             <h2>Book Search</h2>
-//   //             <Input
-//   //               value={this.state.search}
-//   //               onChange={this.handleInputChange}
-//   //               name="search"
-//   //               placeholder="A Tale of Two Cities (required)"
-//   //             />
-//   //             <FormBtn
-//   //               disabled={!this.state.search}
-//   //               onClick={this.handleFormSubmit}
-//   //             >
-//   //               Search
-//   //               </FormBtn>
-//   //           </form>
-//   //         </Wrapper>
-
-//   //       </Col>
-
-
-//   //       <Col size="md-12 sm-12">
-//   //         <Wrapper>
-//   //           {this.state.results.length ? (
-
-//   //             <List>
-//   //               {this.state.results.map(book => {
-//   //                 return (
-//   //                   // <div style={{ borderTop: "1px solid black", borderLeft: "1px solid black", borderRight: "1px solid black",  }}>
-//   //                   <ListItem key={book.title}>
-//   //                     <a rel="noreferrer noopener" target="_blank" href="#">
-//   //                       <strong style={{ fontSize: "24px" }}>
-//   //                         {book.title}
-//   //                       </strong>
-//   //                     </a>
-//   //                     <br />
-//   //                     by {book.author}
-//   //                     <DeleteBtn onClick={() => this.deleteBook(book._id)} />
-//   //                     <SaveBtn onClick={() => this.saveBook(book._id)} />
-//   //                     <hr />
-//   //                     <Row>
-//   //                       <Col size="xs-1 sm-1">
-//   //                         <Thumbnail src={book.thumbnail} />
-//   //                       </Col>
-//   //                       <Col size="xs-11 sm-11">
-//   //                         {book.synopsis}
-//   //                       </Col>
-//   //                     </Row>
-
-//   //                   </ListItem>
-//   //                   // </div>
-//   //                 );
-//   //               }
-//   //               )}
-//   //             </List>
-
-//   //           ) : (
-//   //               <h3>No Results to Display</h3>
-//   //             )}
-
-//   //         </Wrapper>
-//   //       </Col>
-
-//   //     </Container>
-//   //   );
-//   // }
-// }
-
-// export default Inventory;
-
-
-// //  <a rel="noreferrer noopener" target="_blank" href={href}>
-// //                     <Link to={"/books/" + book._id}>
-// //                       <strong>
-// //                         {book.title} by {book.author}
-// //                       </strong>
-// //                     </Link>
-// //                     </a>
-// //                     <DeleteBtn onClick={() => this.deleteBook(book._id)} />
-// //                     <SaveBtn onClick={() => this.saveBook(book._id)} />
-// //                   </ListItem>
-
-
-// // <List>
-// //                 {this.state.books.map(book => {
-// //                   return (
-// //                   <ListItem 
-// //                     key={book._id}
-// //                     title={book.title}
-// //                     // href={book.href}
-// //                     synopsis={book.synopsis}
-// //                     // thumbnail={book.thumbnail}
-// //                     />
-// //                 );}
-// //                 )}
-// //               </List>

@@ -14,25 +14,78 @@ import { Col } from "../components/Grid";
 // import { List } from "../components/List";
 import ProductCard from "../components/ProductCard";
 // import { FormBtn } from "../components/Form";
+import { AgGridColumn, AgGridReact } from 'ag-grid-react';
+import 'ag-grid-community/dist/styles/ag-grid.css';
+import 'ag-grid-community/dist/styles/ag-theme-balham.css';
+import './InventoryStyle.css';
+import ProficiencyCellRenderer from './ProficiencyCellRenderer.jsx';
 
 class Dashboard extends Component {
   state = {
-    results: []
+    results: [],
+    columnDefs: [{
+      headerName: "Title", field: "title"
+    }, {
+      headerName: "Storefront", field: "channel"
+    }, {
+      headerName: "Listing ID", field: "listing_id"
+    }, {
+      headerName: "SKU", field: "sku"
+    }, {
+      headerName: "Views", field: "views"
+    }, {
+      headerName: "Quantity", field: "quantity"
+    }, {
+      headerName: "Price", field: "price"
+    }, {
+      headerName: "URL", field: "url"
+    }],
+    rowData: []
+    // rowData: [{
+    //   make: "Toyota", model: "Celica", price: 35000
+    // }, {
+    //   make: "Ford", model: "Festiva", price: 32000
+    // }, {
+    //   make: "Porsche", model: "Boxster", price: 72000
+    // }]
   };
 
   componentDidMount() {
     this.loadListings();
+    this.loadTableData();
     // this.loadGraphs();
   }
 
   loadListings = () => {
     API.getListings()
       .then(res =>
-        this.setState({ results: res.data })
+        this.setState({ results: res.data }, console.log(res.data))
+      )
+      .catch(err => console.log(err));
+  };
+  loadTableData = () => {
+    API.getListings()
+      .then(res =>
+        this.setState({ rowData: res.data }, console.log(res.data))
       )
       .catch(err => console.log(err));
   };
 
+  static itemCellRenderer(params) {
+    if (params.value) {
+        return `<img border='0' width='45' height='30' style='margin-bottom: 2px' src='${params.value}'> `;
+    } else {
+        return null;
+    }
+  }
+
+  static urlCellRenderer(params) {
+    if (params.value) {
+        return `<a href='${params.value}' target="_blank">${params.value}</a> `;
+    } else {
+        return null;
+    }
+  }
 
 
   // loadGraphs = () => {
@@ -140,6 +193,10 @@ class Dashboard extends Component {
 
 
 render() {
+
+
+
+  
   return (
     <div className="container1">
       <Nav>
@@ -171,6 +228,31 @@ render() {
                 </div>
               </div>
             </Summary> */}
+
+              <div className="ag-theme-balham">
+                <AgGridReact
+                  // columnDefs={this.state.columnDefs}
+                  rowData={this.state.rowData}>
+                    <AgGridColumn field="image" width={85} pinned editable resizable
+                                      cellRenderer={Dashboard.itemCellRenderer}
+                                      // cellEditorParams={{ values: COUNTRY_LIST, cellRenderer: RichGridDeclarativeExample.countryCellRenderer}} cellEditor="agRichSelect"
+                                      filter="set" sortable filterParams={{cellRenderer: Dashboard.itemCellRenderer, cellHeight:20}}>
+                        </AgGridColumn>
+                    <AgGridColumn field="title" width={300} headerName="Title" filter="text" pinned sortable resizable></AgGridColumn>
+                    <AgGridColumn field="channel" width={105} headerName="Storefront" filter="text" sortable resizable></AgGridColumn>
+                    <AgGridColumn field="listing_id" width={105} headerName="Listing ID" filter="text" sortable resizable></AgGridColumn>
+                    <AgGridColumn field="sku" width={85} headerName="SKU" filter="text" sortable resizable></AgGridColumn>
+                    <AgGridColumn field="views" width={105} headerName="Views" filter="text" sortable resizable cellRendererFramework={ProficiencyCellRenderer}></AgGridColumn>
+                    <AgGridColumn field="quantity" width={100} headerName="Quantity" filter="text" sortable resizable></AgGridColumn>
+                    <AgGridColumn field="price" width={85} headerName="Price" filter="text" sortable resizable></AgGridColumn>
+                    {/* <AgGridColumn field="url" width={500} headerName="URL" filter="text" sortable resizable></AgGridColumn> */}
+                    <AgGridColumn field="url" width={500} editable resizable
+                                      cellRenderer={Dashboard.urlCellRenderer}
+                                      // cellEditorParams={{ values: COUNTRY_LIST, cellRenderer: RichGridDeclarativeExample.countryCellRenderer}} cellEditor="agRichSelect"
+                                      filter="set" sortable filterParams={{cellRenderer: Dashboard.urlCellRenderer, cellHeight:20}}>
+                        </AgGridColumn>
+                </AgGridReact>
+              </div>
 
 
             {this.state.results.length ? (

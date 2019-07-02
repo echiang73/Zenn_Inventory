@@ -7,7 +7,7 @@ import API from "../utils/API";
 import { Col } from "../components/Grid";
 import ProductCard from "../components/ProductCard";
 import { FormBtn } from "../components/Form";
-import jsonp from 'jsonp'
+import jsonp from 'jsonp';
 
 class ProductDetail extends Component {
   state = {
