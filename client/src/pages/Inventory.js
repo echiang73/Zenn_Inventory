@@ -50,7 +50,8 @@ class Inventory extends Component {
     // }, {
     //   make: "Porsche", model: "Boxster", price: 72000
     // }]
-    show: false
+    show: false,
+    quickFilterText: null,
   };
 
   componentDidMount() {
@@ -94,29 +95,33 @@ class Inventory extends Component {
   //   this.gridApi.setQuickFilter(document.getElementById("quickFilter").value);
   // }
 
+  onQuickFilterText = (event) => {
+    this.setState({quickFilterText: event.target.value});
+};
+
   handleArticleNotes = (event) => {
     event.preventDefault();
     // alert("Bingo");
-    this.setState({ show: true }) 
+    this.setState({ show: true })
     // var currentArticle = $(this).parents(".panel").data();
     // $.get("/api/notes/" + currentArticle._id).then(function(data) {
     //     console.log(currentArticle);
     // var modalText = [
-      // "<div class='container-fluid text-center'>",
-      // "<h4>Notes For Selected Article: ",
-      // currentArticle._id,
-      // "</h4>",
-      // "<hr />",
-      // "<ul class='list-group note-container'>",
-      // "</ul>",
-      // "<br>",
-      // "<textarea placeholder='Type New Note' rows='4' cols='50'></textarea>",
-      // "<button class='btn btn-success save'>Save Note</button>",
-      // "</div>"
+    // "<div class='container-fluid text-center'>",
+    // "<h4>Notes For Selected Article: ",
+    // currentArticle._id,
+    // "</h4>",
+    // "<hr />",
+    // "<ul class='list-group note-container'>",
+    // "</ul>",
+    // "<br>",
+    // "<textarea placeholder='Type New Note' rows='4' cols='50'></textarea>",
+    // "<button class='btn btn-success save'>Save Note</button>",
+    // "</div>"
     // ].join("");
     // BootBox.dialog({
-      // message: modalText,
-      // closeButton: true
+    // message: modalText,
+    // closeButton: true
     // });
     // var noteData = {
     //     _id: currentArticle._id,
@@ -178,20 +183,22 @@ class Inventory extends Component {
 
 
               {/* {this.state.results.length ? ( */}
-                <div style={{ width: "100%", height: "600px" }}>
-                  <div style={{ height: "100%", paddingTop: "35px", boxSizing: "border-box" }}>
-                    <div className="ag-theme-balham">
+              <div style={{ width: "100%", height: "100%" }}>
+                <div style={{ display: "flex", flexDirection: "row" }}>
+                  <div style={{ overflow: "hidden", flexGrow: "1" }}>
+                    <div id="myGrid" style={{ height: "750px", width: "100%" }} className="ag-theme-balham" >
+                      {/* <div style={{ width: "100%", height: "600px" }}>
+                            <div style={{ height: "100%", paddingTop: "35px", boxSizing: "border-box" }}>
+                              <div className="ag-theme-balham"> */}
 
-                      {/* <div style={{ position: "absolute", top: "0px", left: "0px" }}>
-                    <input
-                      type="text"
-                      onInput={this.onQuickFilterChanged.bind(this)}
-                      id="quickFilter"
-                      placeholder="quick filter..."
-                    />
-                  </div> */}
+                        <div>
+                            <label htmlFor="quickFilter" id="quickFilterLabel">Quick Filter:&nbsp;</label>
+                            <input type="text" id="quickFilter" onChange={this.onQuickFilterText} placeholder="Type text to filter..."/>
+                        </div>
+                    
 
                       <AgGridReact
+                        quickFilterText={this.state.quickFilterText}
                         // columnDefs={this.state.columnDefs}
                         rowData={this.state.rowData}>
                         <AgGridColumn field="image" width={85} headerName="Image" pinned editable
@@ -215,9 +222,10 @@ class Inventory extends Component {
                     </div>
                   </div>
                 </div>
+              </div>
               {/* ) : ( */}
-                  {/* <h3>No Results to Display</h3> */}
-                {/* )} */}
+              {/* <h3>No Results to Display</h3> */}
+              {/* )} */}
 
             </Col>
           </div>
