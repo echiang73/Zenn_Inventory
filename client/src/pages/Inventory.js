@@ -104,14 +104,14 @@ class Inventory extends Component {
     // alert(modalText);
   };
 
-  // showAlert = () => {
-  //   alert('Yes is clicked');
-  //   this.handleClose();
-  // }
+  showAlert = () => {
+    alert('Yes is clicked');
+    this.handleClose();
+  }
 
-  // handleClose = () => {
-  //   this.setState({ show: false })
-  // }
+  handleClose = () => {
+    this.setState({ show: false })
+  }
 
   render() {
     return (
@@ -172,7 +172,8 @@ class Inventory extends Component {
                         <AgGridColumn field="listing_id" width={105} headerName="Listing ID" filter="text" sortable resizable></AgGridColumn>
                         <AgGridColumn field="sku" width={85} headerName="SKU" filter="text" sortable resizable></AgGridColumn>
                         <AgGridColumn field="views" width={105} headerName="Views" filter="text" sortable resizable cellRendererFramework={ProficiencyCellRenderer}></AgGridColumn>
-                        <AgGridColumn field="quantity" width={100} headerName="Quantity" filter="text" sortable resizable></AgGridColumn>
+                        <AgGridColumn field="etsy_quantity" width={125} headerName="Etsy Quantity" filter="text" sortable resizable></AgGridColumn>
+                        <AgGridColumn field="ebay_quantity" width={125} headerName="Ebay Quantity" filter="text" sortable resizable></AgGridColumn>
                         <AgGridColumn field="price" width={85} headerName="Price" filter="text" sortable resizable></AgGridColumn>
                         <AgGridColumn field="url" width={210} headerName="URL" editable resizable
                           cellRenderer={Inventory.urlCellRenderer}

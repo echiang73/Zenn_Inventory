@@ -8,6 +8,7 @@ import { Col } from "../components/Grid";
 import ProductCard from "../components/ProductCard";
 // import { FormBtn } from "../components/Form";
 // import jsonp from 'jsonp';
+import "./ProductDetail.css";
 
 class ProductDetail extends Component {
   state = {

@@ -1,0 +1,29 @@
+/* .ag-theme-balham{
+height: 100%;
+width: 100%;
+}
+
+.ag-row-hover {
+background-color: #dfdfff !important;
+}
+
+.ag-column-hover {
+background-color: #dfffdf;
+}
+
+#quickFilter{
+margin-bottom: 10px;
+}
+
+#quickFilterLabel{
+font-size: 14px;
+} */
+
+.dashboardWrapper {
+/* border: 1px black solid; */
+/* border-radius: 5px; */
+height: 100%;
+/* display: flex; */
+/* flex-flow: row wrap; */
+background: #ECEFF1;
+}

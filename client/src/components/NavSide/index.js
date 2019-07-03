@@ -87,7 +87,7 @@ class NavSide extends Component {
     return (
       <div>
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <div className="row">
+        <div className="row makeFixed">
           <div className="col nav-col" activekey={this.state.key} onSelect={key => this.setState({ key})}>
             <div className="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
               <a className={window.location.pathname === "/" ? "nav-link active" : "nav-link"} eventkey="landing" id="v-pills-landing-tab" data-toggle="pill" href="/" role="tab" aria-controls="v-pills-landing" aria-selected="true">Landing</a>

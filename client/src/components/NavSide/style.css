@@ -35,7 +35,7 @@
   padding-left: 30px;
   padding-right: 30px; */
   background-color: #3a3a3a;
-  /* height: 10000px; */
+  height: 800px;
   margin: 0 auto;
 }
 .nav-link active {
@@ -44,4 +44,10 @@
 
 .col-md-2 {
   background-color: #3a3a3a;
+}
+
+.makeFixed{
+  position: fixed;
+  /* left: 0px; */
+  /* top: 200px; */
 }

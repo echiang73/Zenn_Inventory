@@ -8,6 +8,11 @@ import { Col } from "../components/Grid";
 // import ProductCard from "../components/ProductCard";
 import { FormBtn } from "../components/Form";
 import jsonp from 'jsonp';
+import Summary from "../components/Summary";
+// import SummaryCard from "../components/SummaryCard";
+// import SummaryListCard from "../components/SummaryListCard";
+// import SummaryTopCard from "../components/SummaryTopCard";
+import './DashboardStyle.css';
 
 class Dashboard extends Component {
   state = {
@@ -21,7 +26,7 @@ class Dashboard extends Component {
   loadListings = () => {
     API.getListings()
       .then(res =>
-        this.setState({ results: res.data}, console.log(res.data))
+        this.setState({ results: res.data }, console.log(res.data))
       )
       .catch(err => console.log(err));
   };
@@ -31,8 +36,8 @@ class Dashboard extends Component {
     let term = "SilverandGoldGallery"; // need to put in env
     let api_key = "xv3l1bj1g4cwg1ihrprejjce"; // need to put in env
     let offsetMultiples = [0, 100, 200, 300, 400, 500, 600, 700, 800, 900]; // saves up to 1000 item listings
-    for (let i=0; i < offsetMultiples.length; i++){
-      jsonp("https://openapi.etsy.com/v2/shops/" + term + "/listings/active.js?callback=getData&limit=100&offset="+offsetMultiples[i]+"&includes=Images:1&api_key=" + api_key, null, (err, data) => {
+    for (let i = 0; i < offsetMultiples.length; i++) {
+      jsonp("https://openapi.etsy.com/v2/shops/" + term + "/listings/active.js?callback=getData&limit=100&offset=" + offsetMultiples[i] + "&includes=Images:1&api_key=" + api_key, null, (err, data) => {
         if (err) {
           console.error(err.message);
         }
@@ -43,7 +48,7 @@ class Dashboard extends Component {
               image: value.Images[0].url_570xN,
               title: value.title,
               price: value.price,
-              quantity: value.quantity,
+              etsy_quantity: value.quantity,
               listing_id: value.listing_id,
               sku: value.sku[0],
               views: value.views,
@@ -51,10 +56,10 @@ class Dashboard extends Component {
               description: value.description,
               state: value.state,
               channel: "Etsy"
-              }
-              finalResult.push(callbackResult);
+            }
+            finalResult.push(callbackResult);
           }
-          this.setState({results: finalResult});
+          this.setState({ results: finalResult });
           this.saveEtsyListing(this.state.results);
         }
       });
@@ -88,7 +93,7 @@ class Dashboard extends Component {
               </Jumbotron>
 
               <div>
-                <form style={{float: 'left', marginRight: "5px"}}>
+                <form style={{ float: 'left', marginRight: "5px" }}>
                   <FormBtn
                     onClick={this.handleEtsySearch}>
                     Etsy API Call
@@ -101,7 +106,49 @@ class Dashboard extends Component {
                 </form>
               </div>
 
-                {/* {this.state.results.length ? (
+              <Summary>
+              <div class="dashboardWrapper">
+
+                <div class="row">
+                  <div class="col">
+                    1 of 3
+                  </div>
+                  <div class="col">
+                    2 of 3
+                  </div>
+                  <div class="col">
+                    3 of 3
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col">
+                    1 of 3
+                  </div>
+                  <div class="col">
+                    2 of 3
+                  </div>
+                  <div class="col">
+                    3 of 3
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col">
+                    1 of 3
+                  </div>
+                  <div class="col">
+                    2 of 3
+                  </div>
+                  <div class="col">
+                    3 of 3
+                  </div>
+                </div>
+
+              </div>
+              </Summary>
+
+              {/* {this.state.results.length ? (
                   <DisplayContainer>
                     {this.state.results.map(item => {
                       return (
@@ -339,7 +386,7 @@ export default Dashboard;
 
 
 
-  
+
 //   return (
 //     <div className="container1">
 //       <Nav>
