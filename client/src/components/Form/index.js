@@ -25,3 +25,11 @@ export function FormBtn(props) {
     </button>
   );
 }
+
+export function ClearBtn(props) {
+  return (
+    <button {...props} style={{ marginBottom: 50, border: "1px solid black" }} className="btn btn-danger">
+      {props.children}
+    </button>
+  );
+}

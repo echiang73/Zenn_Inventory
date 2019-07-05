@@ -4,7 +4,8 @@ const itemsController = require("../../controllers/itemsController");
 // Matches with "/api/items"
 router.route("/")
   .get(itemsController.findAll)
-  .post(itemsController.create);
+  .post(itemsController.create)
+  .delete(itemsController.removeAll);
 
 // Matches with "/api/items/:id"
 router

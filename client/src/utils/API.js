@@ -17,7 +17,10 @@ export default {
   // Saves a item to the database
   saveListing: function(itemsData) {
     return axios.post("/api/items", itemsData);
-  // },
+  },
+  clearListings: function(itemsData) {
+    return axios.delete("/api/items", itemsData);
+  }
   // searchListings: function(){
     // console.log("https://www.googleapis.com/books/v1/volumes?q="+itemData+"&key=AIzaSyC4yUBg31kDKaWRNAiIhxhglEMEl0BmPdU");
     // return axios.get("https://www.googleapis.com/books/v1/volumes?q="+itemData+"&key=AIzaSyC4yUBg31kDKaWRNAiIhxhglEMEl0BmPdU");
@@ -43,5 +46,5 @@ export default {
     //     //   listing: data.results[0],
     //   }
     // });
-  }
+  // }
 };
