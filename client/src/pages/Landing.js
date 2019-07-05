@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import IntroSummary from "../components/IntroSummary";
 import LogIn from "../components/LogIn";
 import EmailForm from "../components/EmailForm";
+import GoogleLogin from "../components/GoogleLogin";
+
 
 
 
@@ -10,30 +12,38 @@ class Landing extends Component {
 render() {
     return (
 
- <div className="row">      
+     
   <div className="landingpage">
 
 
 
-
-        <div className="col-6 summary">    
+    <div className="row">
+        <div className="col-6 split-srcreen-col align-items-center summary">    
         <IntroSummary>
+
         </IntroSummary> 
         </div>
      
       
 
    
-        <div className="col-6 login">    
-        <LogIn>
-            <EmailForm>
-            
-            </EmailForm>
-        </LogIn> 
+        <div className="col-6 split-srcreen-col align-items-center login">    
+        {/* <LogIn> */}
+            {/* <EmailForm> */}
+              {/* <GoogleLogin> */}
+
+              {/* </GoogleLogin> */}
+            {/* </EmailForm> */}
+        {/* </LogIn>  */}
+        <LogIn></LogIn>
+        {/* <EmailForm></EmailForm> */}
+        <GoogleLogin></GoogleLogin>
         </div>
+    </div>  
+
     </div>
 
-  </div>
+
 
     
     );

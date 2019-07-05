@@ -45,14 +45,14 @@ class EmailForm extends Component {
             name="eMail"
             onChange={this.handleInputChange}
             type="text"
-            placeholder="eMail"
+            placeholder="email"
           />
             <input
             value={this.state.password}
             name="password"
             onChange={this.handleInputChange}
             type="password"
-            placeholder="pass word"
+            placeholder="password"
           />
           <button onClick={this.handleFormSubmit}>Submit</button>
         </form>
