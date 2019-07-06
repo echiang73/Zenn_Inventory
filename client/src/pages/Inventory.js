@@ -19,7 +19,6 @@ import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-balham.css';
 import './InventoryStyle.css';
 import ProficiencyCellRenderer from './ProficiencyCellRenderer.jsx';
-// import BootBox from 'react-bootbox';
 
 class Inventory extends Component {
   state = {
@@ -67,51 +66,26 @@ class Inventory extends Component {
     }
   }
 
+  static titleCellRenderer(params) {
+    if (params.value) {
+      return `${params.value.replace("&#39;","'")} `;
+    } else {
+      return null;
+    }
+  }
+
+  static descriptionCellRenderer(params) {
+    if (params.value) {
+      return `${params.value.replace("&#39;","'")} `;
+    } else {
+      return null;
+    }
+  }
+
   onQuickFilterText = (event) => {
     this.setState({quickFilterText: event.target.value});
 };
-
-  handleArticleNotes = (event) => {
-    event.preventDefault();
-    // alert("Bingo");
-    this.setState({ show: true })
-    // var currentArticle = $(this).parents(".panel").data();
-    // $.get("/api/notes/" + currentArticle._id).then(function(data) {
-    //     console.log(currentArticle);
-    // var modalText = [
-    // "<div class='container-fluid text-center'>",
-    // "<h4>Notes For Selected Article: ",
-    // currentArticle._id,
-    // "</h4>",
-    // "<hr />",
-    // "<ul class='list-group note-container'>",
-    // "</ul>",
-    // "<br>",
-    // "<textarea placeholder='Type New Note' rows='4' cols='50'></textarea>",
-    // "<button class='btn btn-success save'>Save Note</button>",
-    // "</div>"
-    // ].join("");
-    // BootBox.dialog({
-    // message: modalText,
-    // closeButton: true
-    // });
-    // var noteData = {
-    //     _id: currentArticle._id,
-    //     notes: data || []
-    // };
-    // $(".btn.save").data("article", noteData);
-    // renderNotesList(noteData);
-    // alert(modalText);
-  };
-
-  showAlert = () => {
-    alert('Yes is clicked');
-    this.handleClose();
-  }
-
-  handleClose = () => {
-    this.setState({ show: false })
-  }
+    
 
   render() {
     return (
@@ -130,26 +104,6 @@ class Inventory extends Component {
                 <h2>Inventory</h2>
               </Jumbotron>
 
-
-              {/* <div>
-                <form>
-                  <FormBtn onClick={this.handleArticleNotes}>
-                    Article Notes
-              </FormBtn>
-                </form>
-              </div>
-
-              <button onClick={() => { this.setState({ show: true }) }}>Click me to open BootBox</button>
-              <BootBox
-                // message="Do you want to Continue?"
-                message={<div>Notes For Selected Article: {this.state.results.price}</div>}
-                show={this.state.show}
-                onYesClick={this.showAlert}
-                onNoClick={this.handleClose}
-                onClose={this.handleClose} /> */}
-
-
-
               {/* {this.state.results.length ? ( */}
               <div style={{ width: "100%", height: "100%" }}>
                 <div style={{ display: "flex", flexDirection: "row" }}>
@@ -167,7 +121,11 @@ class Inventory extends Component {
                           cellRenderer={Inventory.itemCellRenderer}
                           filter="set" sortable filterParams={{ cellRenderer: Inventory.itemCellRenderer, cellHeight: 20 }}>
                         </AgGridColumn>
-                        <AgGridColumn field="title" width={300} headerName="Title" filter="text" pinned sortable resizable></AgGridColumn>
+                        {/* <AgGridColumn field="title" width={300} headerName="Title" filter="text" pinned sortable resizable></AgGridColumn> */}
+                        <AgGridColumn field="title" width={300} headerName="Title" pinned resizable
+                          cellRenderer={Inventory.titleCellRenderer}
+                          filter="text" sortable filterParams={{ cellRenderer: Inventory.titleCellRenderer, cellHeight: 20 }}>
+                        </AgGridColumn>
                         <AgGridColumn field="channel" width={105} headerName="Storefront" filter="text" sortable resizable></AgGridColumn>
                         <AgGridColumn field="listing_id" width={105} headerName="Listing ID" filter="text" sortable resizable></AgGridColumn>
                         <AgGridColumn field="sku" width={85} headerName="SKU" filter="text" sortable resizable></AgGridColumn>
@@ -180,7 +138,11 @@ class Inventory extends Component {
                           filter="set" sortable filterParams={{ cellRenderer: Inventory.urlCellRenderer, cellHeight: 20 }}>
                         </AgGridColumn>
                         <AgGridColumn field="state" width={85} headerName="State" filter="text" sortable resizable></AgGridColumn>
-                        <AgGridColumn field="description" width={500} headerName="Description" filter="text" sortable resizable></AgGridColumn>
+                        {/* <AgGridColumn field="description" width={500} headerName="Description" filter="text" sortable resizable></AgGridColumn> */}
+                        <AgGridColumn field="description" width={500} headerName="Description" resizable
+                          cellRenderer={Inventory.descriptionCellRenderer}
+                          filter="text" sortable filterParams={{ cellRenderer: Inventory.descriptionCellRenderer, cellHeight: 20 }}>
+                        </AgGridColumn>
                       </AgGridReact>
                     </div>
                   </div>

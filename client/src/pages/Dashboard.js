@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 // import React, { useState, useEffect } from "react";
 import Jumbotron from "../components/Jumbotron";
-// import DisplayContainer from "../components/DisplayContainer";
+import DisplayContainer from "../components/DisplayContainer";
 import Nav from "../components/Nav";
 import NavSide from "../components/NavSide";
 import API from "../utils/API";
 import { Col } from "../components/Grid";
-// import ProductCard from "../components/ProductCard";
+import ProductCard from "../components/ProductCard";
 import { FormBtn, ClearBtn } from "../components/Form";
 import jsonp from 'jsonp';
 import Summary from "../components/Summary";
 // import SummaryCard from "../components/SummaryCard";
-// import SummaryListCard from "../components/SummaryListCard";
+import TopViewedList from "../components/TopViewedList";
 // import SummaryTopCard from "../components/SummaryTopCard";
 import './DashboardStyle.css';
 
@@ -30,17 +30,25 @@ import './DashboardStyle.css';
 // }
 
 // function TopViewList({ items }) {
+  
 //   return (
-//     <ol> 
+//     <ol>
 //       <h5>Top Viewed Products</h5>
-//       {topViewsFirst(items).map(item => (
+//       {topViewsFirst(items).slice(0, 5).map(item => (
 //         <li key={item.id}>
-//           {item.name}: {item.views}
+//           {item.name} {item.views} views: {item.title}
 //         </li>
 //       ))}
 //     </ol>
 //   );
 // }
+
+// let items = [
+//   { id: 0, name: "Cup", views: 5, isNew: true },
+//   { id: 1, name: "Piano", views: 500, isNew: true },
+//   { id: 2, name: "T-Shirt", views: 10, isNew: true },
+//   { id: 3, name: "Rescue Bots", views: 7, isNew: true }
+// ];
 
 // function Dashboard() {
 class Dashboard extends Component {
@@ -53,19 +61,19 @@ class Dashboard extends Component {
   componentDidMount() {
     this.loadListings();
   }
-  
+
   // useEffect(() => {
-  //   loadListings();
-    // setInterval(() => {
-    //   setUsername('MJ');
-    //   setFirstname('Mary');
-    //   setLastname('Jane');
-    // }, 0);
+  // loadListings();
+  // setInterval(() => {
+  //   setUsername('MJ');
+  //   setFirstname('Mary');
+  //   setLastname('Jane');
+  // }, 0);
   // });
 
 
   loadListings = () => {
-  // const loadListings = () => {
+    // const loadListings = () => {
     API.getListings()
       .then(res =>
         this.setState({ results: res.data }, console.log(res.data))
@@ -114,7 +122,6 @@ class Dashboard extends Component {
   }
 
   handleEbaySearch = event => {
-  // const handleEbaySearch = event => {
     event.preventDefault();
     console.log("Handling Ebay API Call!");
   }
@@ -188,12 +195,12 @@ class Dashboard extends Component {
               </div>
 
 
-              {/* <TopViewList items={items} /> */}
+              {/* <TopViewList props={this.state.results} /> */}
 
               <Summary>
-              
-              {/* <h1>My name is {this.state.results[0].title}</h1> */}
-              {/* {this.state.results.map(item => {
+
+                {/* <h1>My name is {this.state.results[0].title}</h1> */}
+                {/* {this.state.results.map(item => {
                       return (
                         <SummaryCard
                         title={item.title}
@@ -201,76 +208,76 @@ class Dashboard extends Component {
                       );
                     }
                     )} */}
-              
-                
-          
-                    
-                
-              <div className="dashboardWrapper">
 
-                <div className="row">
-                  <div className="col">
-                    1 of 3
+
+
+
+
+                <div className="dashboardWrapper">
+
+                  <div className="row">
+                    <div className="col">
+                      1 of 3
                   </div>
-                  <div className="col">
-                    2 of 3
+                    <div className="col">
+                    <TopViewedList props={this.state.results} />
                   </div>
-                  <div className="col">
-                    3 of 3
+                    <div className="col">
+                      3 of 3
                   </div>
+                  </div>
+
+                  <div className="row">
+                    <div className="col">
+                      1 of 3
+                  </div>
+                    <div className="col">
+                      2 of 3
+                  </div>
+                    <div className="col">
+                      3 of 3
+                  </div>
+                  </div>
+
+                  <div className="row">
+                    <div className="col">
+                      1 of 3
+                  </div>
+                    <div className="col">
+                      2 of 3
+                  </div>
+                    <div className="col">
+                      3 of 3
+                  </div>
+                  </div>
+
                 </div>
-
-                <div className="row">
-                  <div className="col">
-                    1 of 3
-                  </div>
-                  <div className="col">
-                    2 of 3
-                  </div>
-                  <div className="col">
-                    3 of 3
-                  </div>
-                </div>
-
-                <div className="row">
-                  <div className="col">
-                    1 of 3
-                  </div>
-                  <div className="col">
-                    2 of 3
-                  </div>
-                  <div className="col">
-                    3 of 3
-                  </div>
-                </div>
-
-              </div>
               </Summary>
 
-              {/* {this.state.results.length ? (
-                  <DisplayContainer>
-                    {this.state.results.map(item => {
-                      return (
-                        <ProductCard 
-                          image={item.image}
-                          title={item.title}
-                          price={item.price}
-                          quantity={item.quantity}
-                          listing_id={item.listing_id}
-                          sku={item.sku}
-                          key={item.listing_id}
-                          views={item.views}
-                          url={item.url}
-                          description={item.description} 
-                          state={item.state}
-                          channel={item.channel}/>
-                      );
-                    }
-                    )}
-                    </DisplayContainer>
-                ) : (
-                    <h3>No Results to Display</h3>
-                  )} */}
+              {this.state.results.length ? (
+                <DisplayContainer>
+                  {this.state.results.map(item => {
+                    return (
+                      <ProductCard
+                        image={item.image}
+                        title={item.title}
+                        price={item.price}
+                        quantity={item.quantity}
+                        listing_id={item.listing_id}
+                        sku={item.sku}
+                        key={item.listing_id}
+                        views={item.views}
+                        url={item.url}
+                        description={item.description}
+                        state={item.state}
+                        channel={item.channel} />
+                    );
+                  }
+                  )}
+                </DisplayContainer>
+              ) : (
+                  <h3>No Results to Display</h3>
+                )}
             </Col>
           </div>
         </Col>

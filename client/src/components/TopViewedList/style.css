@@ -1,16 +1,16 @@
-.card {
+.viewCard {
   background: #fff;
   border-radius: 2px;
   /* height: 270px; */
   margin: 1rem;
   position: relative;
-  width: 250px;
+  width: 500px;
   /* width: 300px; */
   box-shadow: 0 3px 6px #999, 0 3px 6px #999;
   text-align: left;
 }
 
-.card > .img-container {
+.viewCard > .img-container {
   height: 60%;
   overflow: hidden;
   text-align: center;
@@ -18,11 +18,11 @@
   /* background-image: linear-gradient(141deg, #6CADDC 0%, #1fc8db 51%, #2cb5e8 75%); */
   /* background-image: linear-gradient(141deg, #9fb8ad 0%, #1fc8db 51%, #2cb5e8 75%); */
 }
-.card > .img-container > img {
+.viewCard > .img-container > img {
   width: 60%
 }
 
-.card > .content {
+.viewCard > .content {
   padding-left: 1rem;
   padding-right: 1rem;
   font-size: 15px;
@@ -34,16 +34,16 @@
   padding-bottom: 1rem;
 }
 
-.card > .content > ul {
+.viewCard > .content > ul {
   list-style-type: none;
   padding-inline-start: 0;
 }
 
-.card > .content > ul > li {
+.viewCard > .content > ul > li {
   margin-top: 18px;
 }
 
-.card > .remove {
+.viewCard > .remove {
   color: #ff1744;
   font-size: 48px;
   position: absolute;
@@ -52,10 +52,15 @@
   cursor: pointer;
 }
 
-.card > .remove:hover {
+.viewCard > .remove:hover {
   color: #d50000;
 }
 
-.card > .content > ul > li > a {
+.viewCard > .content > ul > li > a {
   color: white;
+}
+
+.viewCard > ol > h5{
+  text-align: center;
+  margin-left: -50px;
 }

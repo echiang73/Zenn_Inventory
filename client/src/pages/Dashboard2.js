@@ -1,5 +1,5 @@
-// import React, { Component } from "react";
-import React, { useState, useEffect } from "react";
+import React, { Component } from "react";
+// import React, { useState, useEffect } from "react";
 import Jumbotron from "../components/Jumbotron";
 // import DisplayContainer from "../components/DisplayContainer";
 import Nav from "../components/Nav";
@@ -17,66 +17,66 @@ import './DashboardStyle.css';
 
 // const myelement = <h1>React is {5 + 5} times better with JSX</h1>;
 
-function topViewsFirst(items) {
-  return items.filter(item => item).sort((a, b) => {
-    if (a.views < b.views) {
-      return 1;
-    } else if (a.views > b.views) {
-      return -1;
-    } else {
-      return 0;
-    }
-  });
-}
+// function topViewsFirst(items) {
+//   return items.filter(item => item).sort((a, b) => {
+//     if (a.views < b.views) {
+//       return 1;
+//     } else if (a.views > b.views) {
+//       return -1;
+//     } else {
+//       return 0;
+//     }
+//   });
+// }
 
-function TopViewList({ items }) {
-  return (
-    <ol> 
-      <h5>Top Viewed Products</h5>
-      {topViewsFirst(items).map(item => (
-        <li key={item.id}>
-          {item.name}: {item.views}
-        </li>
-      ))}
-    </ol>
-  );
-}
+// function TopViewList({ items }) {
+//   return (
+//     <ol> 
+//       <h5>Top Viewed Products</h5>
+//       {topViewsFirst(items).map(item => (
+//         <li key={item.id}>
+//           {item.name}: {item.views}
+//         </li>
+//       ))}
+//     </ol>
+//   );
+// }
 
-function Dashboard() {
-// class Dashboard extends Component {
-  // state = {
-  //   results: []
-  // };
+// function Dashboard() {
+class Dashboard extends Component {
+  state = {
+    results: []
+  };
 
-  const [results, setResults] = useState('[]');
+  // const [results, setResults] = useState('[]');
 
-  // componentDidMount() {
-  //   this.loadListings();
-  // }
+  componentDidMount() {
+    this.loadListings();
+  }
   
-  useEffect(() => {
-    loadListings();
+  // useEffect(() => {
+  //   loadListings();
     // setInterval(() => {
     //   setUsername('MJ');
     //   setFirstname('Mary');
     //   setLastname('Jane');
     // }, 0);
-  });
+  // });
 
 
-  // loadListings = () => {
-  const loadListings = () => {
+  loadListings = () => {
+  // const loadListings = () => {
     API.getListings()
       .then(res =>
-        // this.setState({ results: res.data }, console.log(res.data))
+        this.setState({ results: res.data }, console.log(res.data))
         // setResults(res.data, console.log(res.data))
-        setResults(res.data)
+        // setResults(res.data)
       )
       .catch(err => console.log(err));
   };
 
-  // handleEtsySearch = event => {
-  const handleEtsySearch = event => {
+  handleEtsySearch = event => {
+  // const handleEtsySearch = event => {
     event.preventDefault();
     let term = "SilverandGoldGallery"; // need to put in env
     let api_key = "xv3l1bj1g4cwg1ihrprejjce"; // need to put in env
@@ -104,22 +104,24 @@ function Dashboard() {
             }
             finalResult.push(callbackResult);
           }
-          // this.setState({ results: finalResult });
-          setResults(finalResult);
-          saveEtsyListing(results);
-          // this.saveEtsyListing(this.state.results);
+          this.setState({ results: finalResult });
+          // setResults(finalResult);
+          // saveEtsyListing(results);
+          this.saveEtsyListing(this.state.results);
         }
       });
     }
+    alert("Success, Etsy API call data saved!");
   }
 
-  const handleEbaySearch = event => {
+  handleEbaySearch = event => {
+  // const handleEbaySearch = event => {
     event.preventDefault();
     console.log("Handling Ebay API Call!");
   }
 
-  // saveEtsyListing = results => {
-  const saveEtsyListing = results => {
+  saveEtsyListing = results => {
+  // const saveEtsyListing = results => {
     API.saveListing(results)
       .then(res => {
         console.log("Saved in Mongo!");
@@ -127,8 +129,8 @@ function Dashboard() {
       .catch(err => console.log(err));
   };
 
-  // clearDatabase = results => {
-  const clearDatabase = results => {
+  clearDatabase = results => {
+  // const clearDatabase = results => {
     API.clearListings(results)
       .then(res => {
         console.log("Cleared Mongo!");
@@ -136,15 +138,15 @@ function Dashboard() {
       .catch(err => console.log(err));
   };
 
-  let items = [
-    { id: 0, name: "Cup", views: 5, isNew: true },
-    { id: 1, name: "Piano", views: 500, isNew: true },
-    { id: 2, name: "T-Shirt", views: 10, isNew: true },
-    { id: 3, name: "Rescue Bots", views: 7, isNew: true }
-  ];
+  // let items = [
+  //   { id: 0, name: "Cup", views: 5, isNew: true },
+  //   { id: 1, name: "Piano", views: 500, isNew: true },
+  //   { id: 2, name: "T-Shirt", views: 10, isNew: true },
+  //   { id: 3, name: "Rescue Bots", views: 7, isNew: true }
+  // ];
 
 
-  // render() {
+  render() {
     return (
 
       <div className="container1">
@@ -165,29 +167,29 @@ function Dashboard() {
               <div>
                 <form style={{ float: 'left', marginRight: "5px" }}>
                   <FormBtn
-                    // onClick={this.handleEtsySearch}>
-                    onClick={handleEtsySearch}>
+                    onClick={this.handleEtsySearch}>
+                    {/* onClick={handleEtsySearch}> */}
                     Manual Etsy API Call
                   </FormBtn>
                 </form>
                 <form style={{ float: 'left', marginRight: "5px" }}>
                   <FormBtn 
-                  // onClick={this.handleEbaySearch}>
-                  onClick={handleEbaySearch}>
+                  onClick={this.handleEbaySearch}>
+                  {/* onClick={handleEbaySearch}> */}
                     Manual Ebay API Call
                   </FormBtn>
                 </form>
                 <form>
                   <ClearBtn 
-                  // onClick={this.clearDatabase}>
-                  onClick={clearDatabase}>
+                  onClick={this.clearDatabase}>
+                  {/* onClick={clearDatabase}> */}
                     Clear Database
                   </ClearBtn>
                 </form>
               </div>
 
 
-              <TopViewList items={items} />
+              {/* <TopViewList items={items} /> */}
 
               <Summary>
               
@@ -276,7 +278,7 @@ function Dashboard() {
       </div>
     );
   }
-// }
+}
 
 export default Dashboard;
 
