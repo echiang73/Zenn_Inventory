@@ -30,7 +30,8 @@ function TopViewedList({ props }) {
           <li key={props._id}>
             <div className="row">
               <div className="col">
-                {props.title.replace("&#39;","'")}
+                {/* {props.title.replace("&#39;","'")} */}
+                <a rel="noreferrer noopener" target="_blank" href={props.url}>{props.title.replace("&#39;","'")}</a>
               </div>
               <div className="col-3">
                 {props.views} views

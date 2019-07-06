@@ -1,29 +1,29 @@
-.viewCard {
+.viewTopCard {
   background: #fff;
   border-radius: 2px;
   height: 340px;
-  padding: 1rem 0 1rem 0;
+  padding: 1rem;
   margin: 1rem 0 1rem 0;
   position: relative;
-  width: 500px;
+  width: 250px;
   /* width: 300px; */
   box-shadow: 0 3px 6px #999, 0 3px 6px #999;
-  text-align: left;
+  /* text-align: left; */
 }
 
-.viewCard > .img-container {
-  height: 60%;
+.viewTopCard > .img-container {
+  height: 100%;
   overflow: hidden;
   text-align: center;
   /* background:#6CADDC; */
   /* background-image: linear-gradient(141deg, #6CADDC 0%, #1fc8db 51%, #2cb5e8 75%); */
   /* background-image: linear-gradient(141deg, #9fb8ad 0%, #1fc8db 51%, #2cb5e8 75%); */
 }
-.viewCard > .img-container > img {
-  width: 60%
+.viewTopCard > .img-container > img {
+  width: 60%;
 }
 
-.viewCard > .content {
+.viewTopCard > .content {
   padding-left: 1rem;
   padding-right: 1rem;
   font-size: 15px;
@@ -35,16 +35,16 @@
   padding-bottom: 1rem;
 }
 
-.viewCard > .content > ul {
+.viewTopCard > .img-container > .content > ul {
   list-style-type: none;
   padding-inline-start: 0;
 }
 
-.viewCard > .content > ul > li {
+.viewTopCard > .content > ul > li {
   margin-top: 18px;
 }
 
-.viewCard > .remove {
+.viewTopCard > .remove {
   color: #ff1744;
   font-size: 48px;
   position: absolute;
@@ -53,15 +53,14 @@
   cursor: pointer;
 }
 
-.viewCard > .remove:hover {
+.viewTopCard > .remove:hover {
   color: #d50000;
 }
 
-.viewCard > .content > ul > li > a {
+.viewTopCard > .content > ul > li > a {
   color: white;
 }
 
-.viewCard > ol > h5{
+.viewTopCard > h5{
   text-align: center;
-  margin-left: -50px;
 }

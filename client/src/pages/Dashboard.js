@@ -10,9 +10,9 @@ import ProductCard from "../components/ProductCard";
 import { FormBtn, ClearBtn } from "../components/Form";
 import jsonp from 'jsonp';
 import Summary from "../components/Summary";
-// import SummaryCard from "../components/SummaryCard";
+import TotalViewsChannel from "../components/TotalViewsChannel";
 import TopViewedList from "../components/TopViewedList";
-// import SummaryTopCard from "../components/SummaryTopCard";
+import TopViewedItem from "../components/TopViewedItem";
 import './DashboardStyle.css';
 
 // const myelement = <h1>React is {5 + 5} times better with JSX</h1>;
@@ -213,48 +213,36 @@ class Dashboard extends Component {
 
 
 
-                <div className="dashboardWrapper">
+                {/* <div className="dashboardWrapper"> */}
 
                   <div className="row">
-                    <div className="col">
-                      1 of 3
+                    <div className="col-lg-3">
+                    <TotalViewsChannel props={this.state.results} />
                   </div>
-                    <div className="col">
+                    <div className="col-lg-3">
+                    <TopViewedItem props={this.state.results} />
+                  </div>
+                    <div className="col-lg-auto">
                     <TopViewedList props={this.state.results} />
                   </div>
-                    <div className="col">
-                      3 of 3
-                  </div>
                   </div>
 
                   <div className="row">
-                    <div className="col">
-                      1 of 3
+                    <div className="col-lg-3">
+                    <TotalViewsChannel props={this.state.results} />
                   </div>
-                    <div className="col">
-                      2 of 3
+                    <div className="col-lg-3">
+                    <TopViewedItem props={this.state.results} />
                   </div>
-                    <div className="col">
-                      3 of 3
-                  </div>
-                  </div>
-
-                  <div className="row">
-                    <div className="col">
-                      1 of 3
-                  </div>
-                    <div className="col">
-                      2 of 3
-                  </div>
-                    <div className="col">
-                      3 of 3
+                    <div className="col-lg-auto">
+                    <TopViewedList props={this.state.results} />
                   </div>
                   </div>
 
-                </div>
+                {/* </div> */}
               </Summary>
 
-              {this.state.results.length ? (
+              {/* {this.state.results.length ? (
                 <DisplayContainer>
                   {this.state.results.map(item => {
                     return (
@@ -277,7 +265,7 @@ class Dashboard extends Component {
                 </DisplayContainer>
               ) : (
                   <h3>No Results to Display</h3>
-                )}
+                )} */}
             </Col>
           </div>
         </Col>
