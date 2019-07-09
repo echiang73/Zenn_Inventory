@@ -8,7 +8,7 @@ import { Col } from "../components/Grid";
 import ProductCard from "../components/ProductCard";
 // import { FormBtn } from "../components/Form";
 // import jsonp from 'jsonp';
-import "./ProductDetail.css";
+import "./ProductDetails.css";
 
 class ProductDetail extends Component {
   state = {
@@ -77,7 +77,7 @@ class ProductDetail extends Component {
         <Nav>
         </Nav>
 
-        <Col size="md-12 sm-12">
+        <Col size="md-12 sm-12" className="noPadding">
           <div className="row">
             <Col size="md-2">
               <NavSide>
@@ -107,15 +107,15 @@ class ProductDetail extends Component {
                       return (
                         <ProductCard 
                           image={item.image}
-                          title={item.title}
-                          price={item.price}
-                          quantity={item.quantity}
+                          title={item.title.replace("&#39;","'")}
+                          price={item.price.toFixed(2)}
+                          quantity={item.etsy_quantity+item.ebay_quantity}
                           listing_id={item.listing_id}
                           sku={item.sku}
                           key={item.listing_id}
                           views={item.views}
                           url={item.url}
-                          description={item.description} 
+                          description={item.description.replace("&#39;","'")} 
                           state={item.state}
                           channel={item.channel}/>
                       );

@@ -35,19 +35,23 @@
   padding-left: 30px;
   padding-right: 30px; */
   background-color: #3a3a3a;
-  height: 800px;
+  height: 1500px;
+  width: 225px;
   margin: 0 auto;
 }
 .nav-link active {
   background: green;
 }
 
-.col-md-2 {
-  background-color: #3a3a3a;
+.col-md-2, .col-md {
+  /* background-color: #3a3a3a; */
+  /* padding-left: 0 !important; */
 }
 
 .makeFixed{
   position: fixed;
   /* left: 0px; */
   /* top: 200px; */
+  
 }
+

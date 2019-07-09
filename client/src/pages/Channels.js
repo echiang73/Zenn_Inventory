@@ -39,7 +39,7 @@ class Channels extends Component {
       {/* <Container fluid> */}
         <Nav>
         </Nav>
-        <Col size="md-12 sm-12">
+        <Col size="md-12 sm-12" className="noPadding">
           <div className="row">
             <Col size="md-2">
               <NavSide>

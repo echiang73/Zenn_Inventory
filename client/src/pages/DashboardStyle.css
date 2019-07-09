@@ -27,3 +27,7 @@ height: 100%;
 /* flex-flow: row wrap; */
 background: #ECEFF1;
 }
+
+.noPadding {
+    /* padding-left: 0 !important; */
+}

@@ -2,23 +2,18 @@ import React, { Component } from 'react';
 import logo from "../assets/images/Summarybg.png";
 // import logo2 from "../assets/images/ZENN.logo.white.png";
 import "./style.css";
-
-
-
-
+import Carousel from '../Carousel';
 
 class IntroSummary extends Component {
   render(){
     return (
      <> 
-
-
       <div className="summary-container">
         <div className="row">
         <main className="col-6">
 
             <img src={logo} alt="logo" />
-              <div className="p col-12">
+              <div className="h4 col-12">
               The e-Commerce industry is growing rapidly and many small business
               are expanding their sales opportunities by selling physical goods
               through popular online selling channels such as Amazon, Etsy, Ebay,
@@ -30,10 +25,18 @@ class IntroSummary extends Component {
               at one with your storefront channels and sync your inventory with
               ZENN Inventory.
               </div>
-          </main>
-          </div>
+          
+        </main>
         </div>
-       </> 
+
+      <div className="row">
+        <Carousel>
+          
+        </Carousel>
+      </div>
+
+      </div>
+    </> 
 
     );
   }

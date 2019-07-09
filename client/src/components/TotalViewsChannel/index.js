@@ -4,7 +4,12 @@ import "./style.css";
 
 // const totalYears = pilots.reduce((acc, pilot) => acc + pilot.years, 0);
 
-function totalViews(props) {
+function totalEtsyViews(props) {
+  return props.reduce((accumulator, prop) => 
+    accumulator + prop.views, 0);
+}
+
+function totalEbayViews(props) {
   return props.reduce((accumulator, prop) => 
     accumulator + prop.views, 0);
 }
@@ -19,9 +24,9 @@ function TotalViewsChannel({ props }) {
     <div className="totalViewsCard">
       <h5>Total Views</h5>
       <ul>
-        <strong>All Views: {totalViews(props)+(totalViews(props)/2)}</strong>
-        <li>Total Etsy Views: {totalViews(props)}</li>
-        <li>Total Ebay Views: </li>
+        <strong>All Views: {totalEtsyViews(props)+totalEbayViews(props)}</strong>
+        <li>Total Etsy Views: {totalEtsyViews(props)}</li>
+        <li>Total Ebay Views: {totalEbayViews(props)}</li>
       </ul>
     </div>
   );

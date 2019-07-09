@@ -3,11 +3,11 @@ import "./style.css";
 const loadingImage = require.context('../assets/images', true);
 // const logoImages = require.context('../assets/images/logos', true);
 
-function topViewsFirst(props) {
+function topQuantityFirst(props) {
   return props.filter(prop => prop).sort((a, b) => {
-    if (a.views < b.views) {
+    if (a.etsy_quantity < b.etsy_quantity) {
       return 1;
-    } else if (a.views > b.views) {
+    } else if (a.etsy_quantity > b.etsy_quantity) {
       return -1;
     } else {
       return 0;
@@ -15,7 +15,7 @@ function topViewsFirst(props) {
   });
 }
 
-function TopViewedItem({ props }) {
+function TopStockedItem({ props }) {
   // 
   let processing = loadingImage(`./loading3.gif`);
   // let channelLogo = logoImages(`./${props.channel}.png`);
@@ -25,7 +25,7 @@ function TopViewedItem({ props }) {
   return (
     <div className="viewTopCard">
       
-        <h5>Top Viewed Item</h5>
+        <h5>Top Stocked Item</h5>
        
 
         {props.isloading ? (
@@ -37,7 +37,7 @@ function TopViewedItem({ props }) {
                 
               ) : (
           
-        topViewsFirst(props.results).slice(0, 1).map(props => (
+        topQuantityFirst(props.results).slice(0, 1).map(props => (
           
           <div className="img-container" key={props._id}>
             <img alt={props.sku} src={props.image} />
@@ -76,4 +76,4 @@ function TopViewedItem({ props }) {
   // );
 }
 
-export default TopViewedItem;
+export default TopStockedItem;

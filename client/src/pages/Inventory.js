@@ -82,6 +82,14 @@ class Inventory extends Component {
     }
   }
 
+  static priceCellRenderer(params) {
+    if (params.value) {
+      return `$${params.value.toFixed(2)} `;
+    } else {
+      return null;
+    }
+  }
+
   onQuickFilterText = (event) => {
     this.setState({quickFilterText: event.target.value});
 };
@@ -93,7 +101,7 @@ class Inventory extends Component {
         <Nav>
         </Nav>
 
-        <Col size="md-12 sm-12">
+        <Col size="md-12 sm-12" className="noPadding">
           <div className="row">
             <Col size="md-2">
               <NavSide>
@@ -132,7 +140,10 @@ class Inventory extends Component {
                         <AgGridColumn field="views" width={105} headerName="Views" filter="text" sortable resizable cellRendererFramework={ProficiencyCellRenderer}></AgGridColumn>
                         <AgGridColumn field="etsy_quantity" width={125} headerName="Etsy Quantity" filter="text" sortable resizable></AgGridColumn>
                         <AgGridColumn field="ebay_quantity" width={125} headerName="Ebay Quantity" filter="text" sortable resizable></AgGridColumn>
-                        <AgGridColumn field="price" width={85} headerName="Price" filter="text" sortable resizable></AgGridColumn>
+                        {/* <AgGridColumn field="price" width={85} headerName="Price" filter="text" sortable resizable></AgGridColumn> */}
+                        <AgGridColumn field="price" width={85} headerName="Price" resizable
+                          cellRenderer={Inventory.priceCellRenderer}
+                          filter="text" sortable filterParams={{ cellRenderer: Inventory.priceCellRenderer, cellHeight: 20 }}></AgGridColumn>
                         <AgGridColumn field="url" width={210} headerName="URL" editable resizable
                           cellRenderer={Inventory.urlCellRenderer}
                           filter="set" sortable filterParams={{ cellRenderer: Inventory.urlCellRenderer, cellHeight: 20 }}>

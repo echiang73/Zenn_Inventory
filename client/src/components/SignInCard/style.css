@@ -1,6 +1,5 @@
-.login {
+/* .login {
     background-color: lightgray;
-    /* float: right; */
     width: 100%;
     
 }
@@ -22,6 +21,13 @@
     padding-right: 30px;
     padding-bottom: 50px;
     padding-left: 80px;
-    
+} */
 
+#landing-logo{
+    padding: 20px;
+}
+
+.form-control{
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
