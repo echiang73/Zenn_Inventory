@@ -6,12 +6,12 @@ import "./style.css";
 
 function totalEtsyViews(props) {
   return props.reduce((accumulator, prop) => 
-    accumulator + prop.views, 0);
+    accumulator + prop.etsy_views, 0);
 }
 
 function totalEbayViews(props) {
   return props.reduce((accumulator, prop) => 
-    accumulator + prop.views, 0);
+    accumulator + prop.ebay_views, 0);
 }
 
 function TotalViewsChannel({ props }) {

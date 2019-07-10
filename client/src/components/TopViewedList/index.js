@@ -4,9 +4,9 @@ import "./style.css";
 
 function topViewsFirst(props) {
   return props.filter(prop => prop).sort((a, b) => {
-    if (a.views < b.views) {
+    if (a.etsy_views < b.etsy_views) {
       return 1;
-    } else if (a.views > b.views) {
+    } else if (a.etsy_views > b.etsy_views) {
       return -1;
     } else {
       return 0;
@@ -34,7 +34,7 @@ function TopViewedList({ props }) {
                 <a rel="noreferrer noopener" target="_blank" href={props.url}>{props.title.replace("&#39;","'")}</a>
               </div>
               <div className="col-3">
-                {props.views} views
+                {props.etsy_views} views
               </div>
             </div>
           </li>

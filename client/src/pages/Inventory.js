@@ -137,8 +137,9 @@ class Inventory extends Component {
                         <AgGridColumn field="channel" width={105} headerName="Storefront" filter="text" sortable resizable></AgGridColumn>
                         <AgGridColumn field="listing_id" width={105} headerName="Listing ID" filter="text" sortable resizable></AgGridColumn>
                         <AgGridColumn field="sku" width={85} headerName="SKU" filter="text" sortable resizable></AgGridColumn>
-                        <AgGridColumn field="views" width={105} headerName="Views" filter="text" sortable resizable cellRendererFramework={ProficiencyCellRenderer}></AgGridColumn>
-                        <AgGridColumn field="etsy_quantity" width={125} headerName="Etsy Quantity" filter="text" sortable resizable></AgGridColumn>
+                        <AgGridColumn field="etsy_views" width={105} headerName="Etsy Views" filter="text" sortable resizable cellRendererFramework={ProficiencyCellRenderer}></AgGridColumn>
+                        <AgGridColumn field="etsy_quantity" width={120} headerName="Etsy Quantity" filter="text" sortable resizable></AgGridColumn>
+                        <AgGridColumn field="ebay_views" width={110} headerName="Ebay Views" filter="text" sortable resizable cellRendererFramework={ProficiencyCellRenderer}></AgGridColumn>
                         <AgGridColumn field="ebay_quantity" width={125} headerName="Ebay Quantity" filter="text" sortable resizable></AgGridColumn>
                         {/* <AgGridColumn field="price" width={85} headerName="Price" filter="text" sortable resizable></AgGridColumn> */}
                         <AgGridColumn field="price" width={85} headerName="Price" resizable

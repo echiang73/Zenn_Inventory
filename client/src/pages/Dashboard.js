@@ -112,7 +112,7 @@ class Dashboard extends Component {
             etsy_quantity: value.quantity,
             listing_id: value.listing_id,
             sku: value.sku[0],
-            views: value.views,
+            etsy_views: value.views,
             url: value.url,
             description: value.description,
             state: value.state,
