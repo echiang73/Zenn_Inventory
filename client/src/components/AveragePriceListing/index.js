@@ -18,6 +18,8 @@ function totalEbayItems(props) {
 
 function AveragePriceListing({ props }) {
 
+
+
   return (
     <div className="averagePriceCard">
       <h5>Average Price/Item</h5>

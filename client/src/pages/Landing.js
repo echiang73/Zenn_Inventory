@@ -49,7 +49,7 @@ class Landing extends Component {
                             <p className="pTag"><i className="fas fa-money-bill-alt" style={{ fontSize: "36px", color: "LimeGreen" }}></i> Save time and money, sell everywhere, and grow your business!
                                 </p>
                         </div>
-                        <div className="col-md-4 offset-md-2 wrap" style={{marginTop:"50px"}}>
+                        <div className="col-md-4 offset-md-2 wrap" style={{marginTop:"100px"}}>
                             <SignInCard></SignInCard>
                         </div>
                     </div>

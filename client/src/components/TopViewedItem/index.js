@@ -48,8 +48,8 @@ function TopViewedItem({ props }) {
               <li><a rel="noreferrer noopener" target="_blank" href={props.url}>{props.title.replace("&#39;","'")}</a></li>
               {/* <li>{props.title}</li> */}
               {/* <li>{props.description}</li> */}
-              <li>${props.price}</li>
-              {/* <li>${props.price.toFixed(2)}</li> */}
+              {/* <li>${props.price}</li> */}
+              <li>${parseInt(props.price).toFixed(2)}</li>
               <li>Quantity: {props.etsy_quantity}</li>
               <li>Listing ID: {props.listing_id}</li>
               <li>SKU: {props.sku}</li>
