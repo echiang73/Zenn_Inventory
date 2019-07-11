@@ -16,14 +16,17 @@ function totalEbayItems(props) {
     accumulator + prop.ebay_quantity, 0);
 }
 
+function calculation(props) {
+  let calc= (totalValue(props)/(totalEtsyItems(props)+totalEbayItems(props))).toFixed(2).toLocaleString();
+  return isNaN(calc) ? 0 : (totalValue(props)/(totalEtsyItems(props)+totalEbayItems(props))).toFixed(2).toLocaleString();
+}
+
 function AveragePriceListing({ props }) {
-
-
-
   return (
     <div className="averagePriceCard">
       <h5>Average Price/Item</h5>
-        <div id="average-price">${(totalValue(props)/(totalEtsyItems(props)+totalEbayItems(props))).toFixed(2).toLocaleString()}</div>
+        {/* <div id="average-price">${(totalValue(props)/(totalEtsyItems(props)+totalEbayItems(props))).toFixed(2).toLocaleString()}</div> */}
+        <div id="average-price">${calculation(props)}</div>
     </div>
   );
 }

@@ -5,9 +5,9 @@ const loadingImage = require.context('../assets/images', true);
 
 function topViewsFirst(props) {
   return props.filter(prop => prop).sort((a, b) => {
-    if (a.views < b.views) {
+    if (a.etsy_views < b.etsy_views) {
       return 1;
-    } else if (a.views > b.views) {
+    } else if (a.etsy_views > b.etsy_views) {
       return -1;
     } else {
       return 0;
@@ -53,7 +53,7 @@ function TopViewedItem({ props }) {
               <li>Quantity: {props.etsy_quantity}</li>
               <li>Listing ID: {props.listing_id}</li>
               <li>SKU: {props.sku}</li>
-              <li>Views: {props.views}</li>
+              <li>Views: <strong>{props.etsy_views}</strong></li>
               {/* <li>State: {props.state}</li> */}
               <li>Storefront: {props.channel}</li>
               {/* <li><img src='channelLogo' /></li> */}

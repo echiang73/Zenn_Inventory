@@ -104,7 +104,8 @@ class SignInCard extends Component {
         </div>
 
         <div className="form-group">
-            <a className="btn btn-warning btn-block my-1" href="/auth/google">
+            {/* <a className="btn btn-warning btn-block my-1" href="/auth/google"> */}
+            <a className="btn btn-warning btn-block my-1" href="/dashboard">
                 <span> <i className="fab fa-google"></i> Sign in with Google</span>
             </a>
         </div>

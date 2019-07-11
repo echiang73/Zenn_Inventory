@@ -34,7 +34,7 @@ function TopStockedList({ props }) {
                 <a rel="noreferrer noopener" target="_blank" href={props.url}>{props.title.replace("&#39;","'")}</a>
               </div>
               <div className="col-3">
-                Quantity: {props.etsy_quantity}
+                Quantity: <strong>{props.etsy_quantity}</strong>
               </div>
             </div>
           </li>

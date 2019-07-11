@@ -107,14 +107,14 @@ class Dashboard extends Component {
         for (let value of data.results) {
           let callbackResult = {
             image: value.Images[0].url_570xN,
-            title: value.title,
+            title: value.title.replace("&#39;","'").replace('&quot;','"').replace('&quot;','"'),
             price: value.price,
             etsy_quantity: value.quantity,
             listing_id: value.listing_id,
             sku: value.sku[0],
             etsy_views: value.views,
             url: value.url,
-            description: value.description,
+            description: value.description.replace("&#39;","'").replace('&quot;','"').replace('&quot;','"'),
             state: value.state,
             channel: "Etsy"
           }

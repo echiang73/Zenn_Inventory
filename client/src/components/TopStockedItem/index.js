@@ -50,10 +50,10 @@ function TopStockedItem({ props }) {
               {/* <li>{props.description}</li> */}
               {/* <li>${props.price}</li> */}
               <li>${parseInt(props.price).toFixed(2)}</li>
-              <li>Quantity: {props.etsy_quantity}</li>
+              <li>Quantity: <strong>{props.etsy_quantity}</strong></li>
               <li>Listing ID: {props.listing_id}</li>
               <li>SKU: {props.sku}</li>
-              <li>Views: {props.views}</li>
+              <li>Views: {props.etsy_views}</li>
               {/* <li>State: {props.state}</li> */}
               <li>Storefront: {props.channel}</li>
               {/* <li><img src='channelLogo' /></li> */}
