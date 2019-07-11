@@ -24,29 +24,30 @@ function TopStockedList({ props }) {
     <div className="viewCard">
       <ol>
         <h5>Top Stocked Products</h5>
-        
-        {topQuantityFirst(props).slice(0, 5).map(props => (
-          
-          <li key={props._id}>
-            <div className="row">
-              <div className="col">
-                {/* {props.title.replace("&#39;","'")} */}
-                <a rel="noreferrer noopener" target="_blank" href={props.url}>{props.title.replace("&#39;","'")}</a>
+        {
+          topQuantityFirst(props).slice(0, 5).map(props => (
+
+            <li key={props._id}>
+              <div className="row">
+                <div className="col">
+                  {/* {props.title.replace("&#39;","'")} */}
+                  <a rel="noreferrer noopener" target="_blank" href={props.url}>{props.title.replace("&#39;", "'")}</a>
+                </div>
+                <div className="col-3">
+                  Quantity: <strong>{props.etsy_quantity}</strong>
+                </div>
               </div>
-              <div className="col-3">
-                Quantity: <strong>{props.etsy_quantity}</strong>
-              </div>
-            </div>
-          </li>
-          
-        ))}
-        
+            </li>
+          ))
+        }
+
+
       </ol>
     </div>
   );
 
 
-    
+
 
   // <div className="card">
   //   <div className="img-container">
