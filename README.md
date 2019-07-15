@@ -59,6 +59,6 @@ https://zenninventory.herokuapp.com/
 https://github.com/echiang73/Zenn_Inventory
 
 
-## Here are the previews of the web application:
+## Here is the preview of the web application:
 
 ![](client/src/components/assets/webpreview.gif "gif")
