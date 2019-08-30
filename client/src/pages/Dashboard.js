@@ -96,8 +96,8 @@ class Dashboard extends Component {
   getResults = (i) => {
 
     console.log("Call " + i);
-    // let term = "SilverandGoldGallery"; // need to put in env
-    let term = "CUSTOMIZEDFORYOUuk"; // need to put in env
+    let term = "SilverandGoldGallery"; // need to put in env
+    // let term = "CUSTOMIZEDFORYOUuk"; // need to put in env
     let api_key = "xv3l1bj1g4cwg1ihrprejjce"; // need to put in env
     jsonp("https://openapi.etsy.com/v2/shops/" + term + "/listings/active.js?callback=getData&limit=100&offset=" + this.offsetMultiples[i] + "&includes=Images:1&api_key=" + api_key, null, (err, data) => {
       if (err) {
