@@ -32,7 +32,7 @@ This full-stack application utilizes the Model/View/Controller (MVC) design patt
 * Media queries
 * Git version control
 * GitHub repository
-* JawsDB - Database-as-a-Service (DBaas)
+* mLab - cloud Database-as-a-Service (DBaas)
 * Heroku deployment
 
 ## npm packages: 
@@ -44,12 +44,11 @@ This full-stack application utilizes the Model/View/Controller (MVC) design patt
 
 
 ## Team Effort
-This full-stack app is developed by Eddie Chiang, Zachary Paulson, Nicolle Chamberlain, Nathaniel Jones, and Michael Garcia.
+This full-stack app is developed by Eddie Chiang, Zachary Paulson, Nicolle Chamberlain, and Nathaniel Jones.
 * Eddie was responsible for writing the front-end code using React.js, Etsy JSON-P API calls, API POST Routes to send new data to MongoDB, API GET routes for retriving inventory data from MongoDB, and rendering of product cards and table using ag-Grid.
 * Zachary was responsible for user authentication using Passport.js with Google authentication.
 * Nicolle was responsible setting up the multi-channel API accounts from her business (Silver and Gold Gallery) and assisting with static page rendering with React.js.
 * Nate was responsible for eBay API which utilized OAuth and webtokens.
-* Michael assisted with Etsy API.
 
 ## Links
 * Click on the deployed app on Heroku!

@@ -96,7 +96,8 @@ class Dashboard extends Component {
   getResults = (i) => {
 
     console.log("Call " + i);
-    let term = "SilverandGoldGallery"; // need to put in env
+    // let term = "SilverandGoldGallery"; // need to put in env
+    let term = "CUSTOMIZEDFORYOUuk"; // need to put in env
     let api_key = "xv3l1bj1g4cwg1ihrprejjce"; // need to put in env
     jsonp("https://openapi.etsy.com/v2/shops/" + term + "/listings/active.js?callback=getData&limit=100&offset=" + this.offsetMultiples[i] + "&includes=Images:1&api_key=" + api_key, null, (err, data) => {
       if (err) {
@@ -107,7 +108,7 @@ class Dashboard extends Component {
         for (let value of data.results) {
           let callbackResult = {
             image: value.Images[0].url_570xN,
-            title: value.title.replace("&#39;","'").replace('&quot;','"').replace('&quot;','"'),
+            title: value.title.replace("&#39;","'").replace('&quot;','"').replace('&quot;','"').substr(0,75),
             price: value.price,
             etsy_quantity: value.quantity,
             listing_id: value.listing_id,
