@@ -2,10 +2,6 @@ import React, { Component } from "react";
 import "./style.css";
 
 class StoreFrontCard extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
-
   render() {
     let storeIcon = `fab fa-${this.props.storeFront.toLocaleLowerCase()}`;
     let authRoute = `http://localhost:3001/auth/${this.props.storeFront}`;

@@ -1,39 +1,5 @@
-/* .navbar {
-  border-bottom: 1px solid black;
-  margin-bottom: 10px;
-  padding-left: 30px;
-  padding-right: 30px;
-} */
-/* .btn-homePage, .btn-savedPage {
-  
-} */
-/* .btn-dashboardPage {
-  border-radius: 5px 0 0 5px;
-  border-left: 1px solid black;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
-} */
-/* .btn-inventoryPage {
-  border-radius: 0;
-  border: 1px solid black;
-} */
-/* .btn-supportPage {
-  border-radius: 0 5px 5px 0;
-  border-right: 1px solid black;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
-} */
-/* .App-logo{
-  width: 100px;
-} */
-
 .nav-col {
-  /* border: 1px solid black; */
-  /* border-radius: 5px; */
   padding: 5px;
-  /* margin-bottom: 10px;
-  padding-left: 30px;
-  padding-right: 30px; */
   background-color: #3a3a3a;
   height: 1500px;
   width: 225px;
@@ -43,15 +9,6 @@
   background: green;
 }
 
-.col-md-2, .col-md {
-  /* background-color: #3a3a3a; */
-  /* padding-left: 0 !important; */
-}
-
 .makeFixed{
   position: fixed;
-  /* left: 0px; */
-  /* top: 200px; */
-  
 }
-

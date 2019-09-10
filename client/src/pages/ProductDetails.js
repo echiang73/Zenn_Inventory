@@ -6,8 +6,6 @@ import NavSide from "../components/NavSide";
 import API from "../utils/API";
 import { Col } from "../components/Grid";
 import ProductCard from "../components/ProductCard";
-// import { FormBtn } from "../components/Form";
-// import jsonp from 'jsonp';
 import "./ProductDetails.css";
 
 class ProductDetail extends Component {
@@ -27,50 +25,6 @@ class ProductDetail extends Component {
       .catch(err => console.log(err));
   };
 
-  // handleEtsySearch = event => {
-  //   event.preventDefault();
-  //   let term = "SilverandGoldGallery"; // need to put in env
-  //   let api_key = "xv3l1bj1g4cwg1ihrprejjce"; // need to put in env
-  //   let offsetMultiples = [0, 100, 200, 300, 400, 500, 600, 700, 800, 900]; // saves up to 1000 item listings
-  //   for (let i=0; i < offsetMultiples.length; i++){
-  //     jsonp("https://openapi.etsy.com/v2/shops/" + term + "/listings/active.js?callback=getData&limit=100&offset="+offsetMultiples[i]+"&includes=Images:1&api_key=" + api_key, null, (err, data) => {
-  //       if (err) {
-  //         console.error(err.message);
-  //       }
-  //       else {
-  //         let finalResult = [];
-  //         for (let value of data.results) {
-  //           let callbackResult = {
-  //             image: value.Images[0].url_570xN,
-  //             title: value.title,
-  //             price: value.price,
-  //             quantity: value.quantity,
-  //             listing_id: value.listing_id,
-  //             sku: value.sku[0],
-  //             views: value.views,
-  //             url: value.url,
-  //             description: value.description,
-  //             state: value.state,
-  //             channel: "Etsy"
-  //             }
-  //             finalResult.push(callbackResult);
-  //         }
-  //         this.setState({results: finalResult});
-  //         this.saveEtsyListing(this.state.results);
-  //       }
-  //     });
-  //   }
-  // }
-
-  // saveEtsyListing = results => {
-  //   API.saveListing(results)
-  //     .then(res => {
-  //       console.log("Saved in Mongo!");
-  //     })
-  //     .catch(err => console.log(err));
-  // };
-
-
   render() {
     return (
       <div className="container1">
@@ -87,20 +41,6 @@ class ProductDetail extends Component {
               <Jumbotron>
                 <h2>Products Currently For Sale</h2>
               </Jumbotron>
-
-              {/* <div>
-                <form style={{float: 'left', marginRight: "5px"}}>
-                  <FormBtn
-                    onClick={this.handleEtsySearch}>
-                    Etsy API Call
-                </FormBtn>
-                </form>
-                <form>
-                  <FormBtn onClick={this.handleEbaySearch}>
-                    Ebay API Call
-                </FormBtn>
-                </form>
-              </div> */}
                 {this.state.results.length ? (
                   <DisplayContainer>
                     {this.state.results.map(item => {

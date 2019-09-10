@@ -7,7 +7,6 @@ function totalValue(props) {
 }
 
 function TotalValueInventory({ props }) {
-
   return (
     <div className="totalValueCard">
       <h5>Total Value of Inventory</h5>

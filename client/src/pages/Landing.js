@@ -1,22 +1,13 @@
 import React, { Component } from "react";
-// import IntroSummary from "../components/IntroSummary";
-// import LogIn from "../components/LogIn";
-// import EmailForm from "../components/EmailForm";
-// import GoogleLogin from "../components/GoogleLogin";
-// import Carousel from "../components/Carousel";
 import SignInCard from "../components/SignInCard";
 import landingimg1 from '../components/assets/images/landing2.png';
-// import background from '../components/assets/images/Summarybg.png';
 import './Landing.css';
 
 class Landing extends Component {
-
     render() {
         return (
-
             <div className="landingpage" 
             style={{
-            // backgroundImage: `url(${background})`, 
             backgroundAttachment: "fixed",
             backgroundPosition: "left",
             backgroundRepeat: "no-repeat",
@@ -27,14 +18,12 @@ class Landing extends Component {
                 <div className="container">
                     <div className="row" style={{paddingTop:"50px"}}>
                         <div className="col-6">
-                            {/* <nav className="navbar navbar-default" style={{borderBottom: 0, padding: 0}}> */}
                                 <div className="container title">
                                     <div className="nav-title">
                                         <p className="navTitle">ZENN Inventory</p>
                                         <p id="tagLine">"Be at one with your inventory"</p>
                                     </div>
                                 </div>
-                            {/* </nav> */}
 
                             <div className="landing-img">
                                 <img src={landingimg1} alt="inventory mess" style={{ display: "block", marginLeft: "auto", marginRight: "auto", width: "90%"}} />
@@ -54,8 +43,6 @@ class Landing extends Component {
                         </div>
                     </div>
                 </div>
-
-                
 
                 <div className="footer fixed-bottom col-12" style={{ textAlign: "center", margin: "50px 0 0 0", padding: 0, background: "white" }}>
                     <a className="links" href="https://www.zenninventory.com">© 2019 ZENN Inventory</a>

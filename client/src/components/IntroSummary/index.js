@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import logo from "../assets/images/Summarybg.png";
-// import logo2 from "../assets/images/ZENN.logo.white.png";
 import "./style.css";
-import Carousel from '../Carousel';
 
 class IntroSummary extends Component {
   render(){
@@ -25,19 +23,10 @@ class IntroSummary extends Component {
               at one with your storefront channels and sync your inventory with
               ZENN Inventory.
               </div>
-          
         </main>
         </div>
-
-      <div className="row">
-        <Carousel>
-          
-        </Carousel>
-      </div>
-
       </div>
     </> 
-
     );
   }
 }

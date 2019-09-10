@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import "./style.css";
-// import EmailForm from "../EmailForm";
-// import GoogleLogin from "../GoogleLogin";
 import logo from "../assets/images/ZENN.logo.png";
-
 
 class SignInCard extends Component {
   state = {

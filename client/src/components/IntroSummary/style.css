@@ -3,17 +3,13 @@
   padding: 0px;
 }
 
-
 .col-6 {
   padding: 0px;
 }
 
-
 .summary-logo {
 background: no-repeat center;
 width: 100%;
-
-
 }
 
 .h4 {
@@ -23,14 +19,9 @@ width: 100%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
-  
-
-
 }
 
 .col-12 {
   margin: 100px;
   padding: 25px;
-
 }
-

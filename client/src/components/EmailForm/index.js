@@ -36,7 +36,6 @@ class EmailForm extends Component {
     return (
 
       <div className="text-center">
-      {/* <body className="text-center"> */}
         <form className="eMail-form form-signin">
           <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
 
@@ -55,10 +54,7 @@ class EmailForm extends Component {
             placeholder="Password"
           />
           <button className="submitButton" onClick={this.handleFormSubmit}>Submit</button>
-
-
         </form>
-      {/* </body> */}
       </div>
     );
   }

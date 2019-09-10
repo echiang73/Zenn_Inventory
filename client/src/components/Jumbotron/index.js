@@ -3,10 +3,7 @@ import "./style.css";
 
 function Jumbotron({ children }) {
   return (
-    <div
-      // style={{ height: 140, clear: "both", paddingTop: 30, textAlign: "center", border: "1px solid black", marginBottom: "20px"}}
-      className="jumbotron"
-    >
+    <div className="jumbotron">
       {children}
     </div>
   );

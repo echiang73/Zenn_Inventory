@@ -25,7 +25,6 @@ function AveragePriceListing({ props }) {
   return (
     <div className="averagePriceCard">
       <h5>Average Price/Item</h5>
-        {/* <div id="average-price">${(totalValue(props)/(totalEtsyItems(props)+totalEbayItems(props))).toFixed(2).toLocaleString()}</div> */}
         <div id="average-price">${calculation(props)}</div>
     </div>
   );

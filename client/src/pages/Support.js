@@ -1,14 +1,10 @@
 import React, { Component } from "react";
-// import DeleteBtn from "../components/DeleteBtn";
 import Jumbotron from "../components/Jumbotron";
 import Summary from "../components/Summary";
-// import Wrapper from "../components/Wrapper";
 import Nav from "../components/Nav";
 import NavSide from "../components/NavSide";
 import API from "../utils/API";
-// import { Link } from "react-router-dom";
 import { Col } from "../components/Grid";
-// import { List, ListItem } from "../components/List";
 
 class Support extends Component {
   state = {
@@ -19,10 +15,6 @@ class Support extends Component {
     search: "",
     results: []
   };
-
-  componentDidMount() {
-    // this.loadItems();
-  }
 
   loadItems = () => {
     API.getItems()
@@ -36,7 +28,6 @@ class Support extends Component {
   render() {
     return (
       <div>
-        {/* <Container fluid> */}
         <Nav>
         </Nav>
         <Col size="md-12 sm-12" className="noPadding">
@@ -48,21 +39,12 @@ class Support extends Component {
             <Col size="md-10">
               <Jumbotron>
                 <h1>Support</h1>
-                {/* <div>Contact ZENN Inventory</div> */}
               </Jumbotron>
-
               <div className="row">
                 <Col size="md-12 sm-12">
                   <Summary>
                     <h3>Contact</h3>
-                    {/* <div>Info and Map</div> */}
-                    {/* <header class="contact-section" id="contact">
-
-                      <div class="about-overlay project-header"> */}
-
                       <p>Email us directly at support@zenninventory.com or submit the form below:</p>
-
-                        
                         <section data-aos="fade-up" data-aos-offset="800" data-aos-easing="ease-in-sine" data-aos-anchor="#projects"
                           data-aos-anchor-placement="bottom-bottom">
                           <div style={{justifyContent: 'center', textAlign: 'left'}} class="row">
@@ -111,9 +93,6 @@ class Support extends Component {
                             </div>
                           </div>
                         </section>
-                      {/* </div>
-                    </header> */}
-
                   </Summary>
 
                 </Col>

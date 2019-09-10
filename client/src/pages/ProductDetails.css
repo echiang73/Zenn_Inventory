@@ -1,26 +1,3 @@
-/* .ag-theme-balham{
-height: 100%;
-width: 100%;
-}
-
-.ag-row-hover {
-putting in !important so it overrides the theme's styling as it hovers the row also
-background-color: #dfdfff !important;
-}
-
-.ag-column-hover {
-background-color: #dfffdf;
-}
-
-#quickFilter{
-margin-bottom: 10px;
-}
-
-#quickFilterLabel{
-font-weight: bold;
-font-size: 14px;
-} */
-
 .col-md-2 {
 height: 100%;
 }

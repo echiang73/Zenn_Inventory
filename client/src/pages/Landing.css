@@ -3,7 +3,6 @@
     font-weight: bold;
     text-align: center;
     margin-bottom: 0px;
-    /* color: red; */
     background: -webkit-linear-gradient(left, green, orange, red, blue);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;

@@ -21,30 +21,4 @@ export default {
   clearListings: function(itemsData) {
     return axios.delete("/api/items", itemsData);
   }
-  // searchListings: function(){
-    // console.log("https://www.googleapis.com/books/v1/volumes?q="+itemData+"&key=AIzaSyC4yUBg31kDKaWRNAiIhxhglEMEl0BmPdU");
-    // return axios.get("https://www.googleapis.com/books/v1/volumes?q="+itemData+"&key=AIzaSyC4yUBg31kDKaWRNAiIhxhglEMEl0BmPdU");
-    // return axios.get("https://openapi.etsy.com/v2/shops/SilverandGoldGallery/listings/active?api_key=xv3l1bj1g4cwg1ihrprejjce");
-    // return axios.get("https://openapi.etsy.com/v2/shops/SilverandGoldGallery/listings/active?api_key=xv3l1bj1g4cwg1ihrprejjce", {
-    //   headers: {
-    //     "Access-Control-Allow-Origin" : "*",
-    //     "Content-Type" : "application/json",
-    //     "dataType" : "application/json"
-    //   }
-    // });
-
-    // jsonp("https://openapi.etsy.com/v2/shops/SilverandGoldGallery/listings/active.js?callback=getData&limit=10&includes=Images:1&api_key=xv3l1bj1g4cwg1ihrprejjce", null, (err, data) => {
-    //   console.log("Data" + data.ok);
-    //   console.log(data.results[0]);
-    //   if (err) {
-    //     console.error(err.message);
-    //   }
-    //   else {
-    //     console.log("data is", data);
-    //     return data;
-    //     // this.setState({
-    //     //   listing: data.results[0],
-    //   }
-    // });
-  // }
 };
